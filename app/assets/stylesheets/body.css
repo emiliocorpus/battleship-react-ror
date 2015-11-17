@@ -1,0 +1,14 @@
+#page-container {
+	min-width:600px;
+}
+
+#body-container {
+	height: 85vh;
+	width:100%;
+}
+
+#board-container {
+	background-color: #29506D;
+}
+
+
