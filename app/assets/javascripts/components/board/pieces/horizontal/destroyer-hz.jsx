@@ -1,7 +1,7 @@
 var DestroyerHz = React.createClass({
 	render:function(){
 		return(
-			<table id="destroyer" title="=Destroyer">
+			<table className="destroyer" title="Destroyer">
 				<tbody>
 					<tr>
 						<td className="ship-cell"></td>

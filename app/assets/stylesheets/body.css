@@ -57,7 +57,11 @@
 
 
 
-/* INSTRUCTIONS AND INITIAL PIECES */
+/* NEW GAME SET UP, INSTRUCTIONS AND INITIAL PIECES */
+
+#new-game-set-up {
+	margin-right:30px;
+}
 #instructions {
 	color:white;
 	vertical-align: top;
@@ -66,7 +70,9 @@
 }
 
 .pieces {
-	margin-left: 50px;
+	width:95%;
+	text-align:center;
+	margin-left: 20px;
 }
 
 .pieces div{

@@ -1,7 +1,7 @@
-var BattleShipVert = React.createClass({
+var BattleshipVert = React.createClass({
 	render:function(){
 		return (	
-			<table id="battleship" title="Battleship">
+			<table className="battleship" title="Battleship">
 				<tbody>
 					<tr>
 						<td className="ship-cell"></td>

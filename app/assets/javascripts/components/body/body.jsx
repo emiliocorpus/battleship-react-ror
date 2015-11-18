@@ -21,33 +21,30 @@ var Body = React.createClass({
 		})
 	},
 	changePieceDirection:function(piece, direction){
-		debugger
-		switch(piece) {
-			case "aircraft-carrier":
+		if (piece === "aircraft-carrier") {
 				this.setState({
-					aircraftCarrier: direction
+					aircraftCarrier: direction,
 				});
-				break;
-			case "battleship":
+		}
+		else if (piece==="battleship") {
 				this.setState({
 					battleship: direction
 				});
-				break;
-			case "destroyer":
+		}				
+		else if (piece==="destroyer"){
 				this.setState({
 					destroyer: direction
 				});
-				break;
-			case "submarine":
+		}
+		else if (piece==="submarine") {
 				this.setState({
 					submarine: direction
 				});
-				break;
-			case "patrol-ship":
+		}
+		else if (piece==="patrol-ship") {
 				this.setState({
 					patrolShip: direction
 				});
-				break;
 		}
 	},
 	render:function(){

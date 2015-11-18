@@ -17,9 +17,7 @@ var Board = React.createClass({
 							<th>I</th>
 							<th>J</th>
 						</tr>
-		                    
 					</thead>
-
 					<tbody>
 						<tr>
 							<th colSpan="1">1</th>

@@ -1,6 +1,5 @@
 var PieceInstructions = React.createClass({
 	receiveDirectionChange:function(piece, direction){
-		debugger
 		this.props.directionChange(piece, direction)
 	},
 
@@ -17,11 +16,17 @@ var PieceInstructions = React.createClass({
 					</ul>
 
 				<div className="pieces">
+
 					<AircraftCarrierPiece direction={this.props.data.aircraftCarrier} amountLeft={this.props.data.aircraftCarrierAmount} handleDirectionChange={this.receiveDirectionChange}/>
+
 					<BattleshipPiece direction={this.props.data.battleship} amountLeft={this.props.data.battleshipAmount} handleDirectionChange={this.receiveDirectionChange}/>
+
 					<SubmarinePiece direction={this.props.data.submarine} amountLeft={this.props.data.submarineAmount} handleDirectionChange={this.receiveDirectionChange}/>
+
 					<DestroyerPiece direction={this.props.data.destroyer} amountLeft={this.props.data.destroyerAmount}  handleDirectionChange={this.receiveDirectionChange}/>
-					<PatrolShipPiece direction={this.props.data.patrolShipPiece} amountLeft={this.props.data.patrolShipAmount} handleDirectionChange={this.receiveDirectionChange}/>
+
+					<PatrolShipPiece direction={this.props.data.patrolShip} amountLeft={this.props.data.patrolShipAmount} handleDirectionChange={this.receiveDirectionChange}/>
+
 				</div>
 			</div>
 		)

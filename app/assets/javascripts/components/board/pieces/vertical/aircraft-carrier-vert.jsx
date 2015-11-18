@@ -1,7 +1,7 @@
 var AircraftCarrierVert = React.createClass({
 	render:function(){
 		return (
-			<table id="aircraft-carrier" title="Aircraft-Carrier">
+			<table className="aircraft-carrier" title="Aircraft-Carrier">
 				<tbody>
 					<tr>
 						<td className="ship-cell"></td>
