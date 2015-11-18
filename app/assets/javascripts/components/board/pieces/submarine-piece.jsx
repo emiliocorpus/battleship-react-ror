@@ -1,13 +1,13 @@
 var SubmarinePiece = React.createClass({
+	handleSingleClick:function(){
+		this.props.sendSelection('submarine')
+	},
 	handleDoubleClick:function(){
 		if (this.props.direction==="hz") {
-			console.log('workig hz')
 			this.props.handleDirectionChange("submarine", "vert")
 		}
 		else {
 			this.props.handleDirectionChange("submarine","hz")
-			console.log('working vert')
-
 		}
 	},
 	render:function() {
@@ -19,7 +19,7 @@ var SubmarinePiece = React.createClass({
 			piece = <SubmarineVert />
 		}
 		return (
-			<div id="submarine-piece" onDoubleClick={this.handleDoubleClick}>
+			<div id="submarine-piece" onDoubleClick={this.handleDoubleClick} onClick={this.handleSingleClick}>
 				{piece}
 			</div>
 		)

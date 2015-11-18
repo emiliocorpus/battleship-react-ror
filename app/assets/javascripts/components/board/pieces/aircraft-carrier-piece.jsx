@@ -1,4 +1,7 @@
 var AircraftCarrierPiece = React.createClass({
+	handleSingleClick:function(){
+		this.props.sendSelection('aircraft-carrier')
+	},
 	handleDoubleClick:function(){
 		if (this.props.direction==="hz") {
 			this.props.handleDirectionChange("aircraft-carrier", "vert")
@@ -16,7 +19,7 @@ var AircraftCarrierPiece = React.createClass({
 			piece = <AircraftCarrierVert />
 		}
 		return (
-			<div id="aircraft-carrier-piece" onDoubleClick={this.handleDoubleClick}>
+			<div id="aircraft-carrier-piece" onDoubleClick={this.handleDoubleClick} onClick={this.handleSingleClick}>
 				{piece}
 			</div>
 		)

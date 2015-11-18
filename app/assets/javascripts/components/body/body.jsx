@@ -20,31 +20,40 @@ var Body = React.createClass({
 			board:true
 		})
 	},
+	makePieceSelection:function(selection){
+		console.log(selection)
+		this.setState({
+			selected: selection
+		})
+	},
 	changePieceDirection:function(piece, direction){
-		if (piece === "aircraft-carrier") {
+		switch (piece) {
+			case "aircraft-carrier": 
 				this.setState({
 					aircraftCarrier: direction,
 				});
-		}
-		else if (piece==="battleship") {
+				break;
+
+			case "battleship": 
 				this.setState({
 					battleship: direction
 				});
-		}				
-		else if (piece==="destroyer"){
+				break;
+			case "destroyer":
 				this.setState({
 					destroyer: direction
 				});
-		}
-		else if (piece==="submarine") {
+				break;
+			case "submarine":
 				this.setState({
 					submarine: direction
 				});
-		}
-		else if (piece==="patrol-ship") {
+				break;
+			case "patrol-ship":
 				this.setState({
 					patrolShip: direction
 				});
+				break;
 		}
 	},
 	render:function(){
@@ -53,7 +62,7 @@ var Body = React.createClass({
 			toBeShown = <NewGameButton startGame={this.startNewGame} />
 		}
 		else {
-			toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection}/>
+			toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection} handlePieceSelection={this.makePieceSelection}/>
 		}
 		return (
 			<div id="body-container" className="debugger">
