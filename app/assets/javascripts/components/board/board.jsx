@@ -2,7 +2,7 @@ var Board = React.createClass({
 	render:function(){
 		return (
 			<div id="board-container">
-				<table id="board" cellPadding="0" cellSpacing="0">
+				<table className="board" cellPadding="0" cellSpacing="0">
 					<thead>
 						<tr>
 							<th> </th>	
@@ -17,10 +17,6 @@ var Board = React.createClass({
 							<th>I</th>
 							<th>J</th>
 						</tr>
-		                    
-		          
-		                    
-		        
 		                    
 					</thead>
 
