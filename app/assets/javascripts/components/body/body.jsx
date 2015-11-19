@@ -29,6 +29,10 @@ var Body = React.createClass({
 			selected: {piece:null,direction:null}
 		}
 	},
+
+
+
+	// PLACING PIECES
 	makePieceSelection:function(selection){
 		console.log(selection)
 		this.setState({
@@ -37,60 +41,64 @@ var Body = React.createClass({
 	},
 	placePiece:function(row, col){
 		if (this.state.selected.direction !== null) {
-			if (this.state.selected.direction==="hz") {
-				this.horizontalCheck(row,col)
+			if (this.state.selected.direction==="vert") {
+				debugger
+				this.verticalCheck(row,col)
 			}
 			else {
-				this.verticalCheck(row,col)
+				debugger
+				this.horizontalCheck(row,col)
 			}
 		}
 	},
 	horizontalCheck:function(row, col){
-		var shipLength
-		var cellCheck = 0
-		var currentBoard = this.state.board
-		var selectedPiece = this.state.selected.piece
-		switch (selectedPiece) {
-			case "aircraftCarrier":
-				shipLength = 4
-			break;
-
-			case "battleship":
-				shipLength = 3
-			break;
-
-			case "destroyer":
-				shipLength = 2
-			break;
-
-			case "submarine":
-				shipLength = 2
-			break;
-
-			case "patrolShip":
-				shipLength = 1
-			break;
-		}
-		if (col + shipLength < 10) {
-			for (var i=0; i <= shipLength; i++ ) {
-				if (col + shipLength < 10) {
-					if ( this.state.board.grid[row][col+i].cellType !== "empty") {
-						cellCheck = null
+		debugger
+		var values = this.dataParser(row,col)
+		this.translateData(values, "hz")
+	},
+	checkHorizontalPath:function(values){
+		if (values.maxPosition< 10) {
+			for (var i=0; i <= values.shipLength; i++ ) {
+					if ( this.state.board.grid[values.row][values.col+i].cellType !== "empty") {
+						values.cellCheck = null
 					}
-				}
 			}
-			if (cellCheck !== null) {
-				cellCheck = 1
-				for (var i=0; i <= shipLength; i++ ) {
-					currentBoard.grid[row][col+i].cellType = "ship"
-					currentBoard.grid[row][col+i].shipType = selectedPiece
-					currentBoard.grid[row][col+i].shipId = this.state[selectedPiece + "Amount"] + 1
+			if (values.cellCheck !== null) {
+				values.cellCheck = 1
+				for (var i=0; i <= values.shipLength; i++ ) {
+					values.currentBoard.grid[values.row][values.col+i].cellType = "ship"
+					values.currentBoard.grid[values.row][values.col+i].shipType = values.selectedPiece
+					values.currentBoard.grid[values.row][values.col+i].shipId = this.state[values.selectedPiece + "Amount"] + 1
 				}
 			}
 		}
-		this.setPieceAndBoard(selectedPiece, cellCheck, currentBoard)
+		
+		return values
 	},
 	verticalCheck:function(row,col){
+		var values = this.dataParser(row,col)
+		this.translateData(values, "vert")
+	},
+	checkVerticalPath:function(values){
+		if (values.maxPosition < 10) {
+			for (var i=0; i <= values.shipLength; i++ ) {
+				if ( this.state.board.grid[values.row+i][values.col].cellType !== "empty") {
+					values.cellCheck = null
+				}
+			}
+			if (values.cellCheck !== null) {
+				values.cellCheck = 1
+				for (var i=0; i <= values.shipLength; i++ ) {
+					values.currentBoard.grid[values.row+i][values.col].cellType = "ship"
+					values.currentBoard.grid[values.row+i][values.col].shipType = values.selectedPiece
+					values.currentBoard.grid[values.row+i][values.col].shipId = this.state[values.selectedPiece + "Amount"] + 1
+				}
+			}
+		}
+		debugger
+		return values
+	},
+	dataParser:function(row,col) {
 		var shipLength
 		var cellCheck = 0
 		var currentBoard = this.state.board
@@ -116,25 +124,30 @@ var Body = React.createClass({
 				shipLength = 1
 			break;
 		}
-		if (row+shipLength < 10) {
-			for (var i=0; i <= shipLength; i++ ) {
-				if ( this.state.board.grid[row+i][col].cellType !== "empty") {
-					cellCheck = null
-				}
-			}
-			if (cellCheck !== null) {
-				cellCheck = 1
-				for (var i=0; i <= shipLength; i++ ) {
-					currentBoard.grid[row+i][col].cellType = "ship"
-					currentBoard.grid[row+i][col].shipType = selectedPiece
-					currentBoard.grid[row+i][col].shipId = this.state[selectedPiece + "Amount"] + 1
-				}
-			}
+		return {
+			row:row,
+			col: col,
+			shipLength: shipLength,
+			cellCheck: cellCheck,
+			currentBoard: currentBoard,
+			selectedPiece:selectedPiece,
+			maxPosition: col + shipLength
 		}
-		this.setPieceAndBoard(selectedPiece, cellCheck, currentBoard)
 	},
+	translateData:function(values, direction){
+		var newValues;
+		
+		if (direction==="hz"){
+			newValues = this.checkHorizontalPath(values)
+		}
+		else {
+			newValues = this.checkVerticalPath(values)
+		}
+		
+		this.setPieceAndBoard(newValues.selectedPiece, newValues.cellCheck, newValues.currentBoard)
+	},
+	
 	setPieceAndBoard:function(selectedPiece, piecesLeft, currentBoard) {
-		debugger
 		switch (selectedPiece) {
 			case "aircraftCarrier":
 				this.setState({
@@ -168,6 +181,10 @@ var Body = React.createClass({
 				break;
 		}
 	},
+	
+
+
+
 
 
 
@@ -178,7 +195,7 @@ var Body = React.createClass({
 	},
 	
 	changePieceDirection:function(selection){
-		debugger
+		
 		console.log(selection)
 		switch (selection.piece) {
 			case "aircraftCarrier": 

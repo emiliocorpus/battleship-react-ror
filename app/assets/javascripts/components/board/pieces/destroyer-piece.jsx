@@ -1,6 +1,6 @@
 var DestroyerPiece = React.createClass({
 	handleSingleClick:function(){
-		this.props.sendSelection({piece:'destroyer',direction:this.props.destroyer})
+		this.props.sendSelection({piece:'destroyer',direction:this.props.data.destroyer})
 	},
 	handleDoubleClick:function(){
 		if (this.props.data.destroyer==="hz") {

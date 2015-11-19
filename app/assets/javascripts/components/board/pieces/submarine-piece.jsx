@@ -1,6 +1,6 @@
 var SubmarinePiece = React.createClass({
 	handleSingleClick:function(){
-		this.props.sendSelection({piece:"submarine", direction:this.props.submarine})
+		this.props.sendSelection({piece:"submarine", direction:this.props.data.submarine})
 	},
 	handleDoubleClick:function(){
 		if (this.props.data.submarine==="hz") {
