@@ -30,7 +30,7 @@ var Body = React.createClass({
 		}
 	},
 	makePieceSelection:function(selection){
-		
+		console.log(selection)
 		this.setState({
 			selected: selection
 		})
@@ -47,45 +47,7 @@ var Body = React.createClass({
 	},
 	horizontalCheck:function(row, col){
 		var shipLength
-		var pieceCheck = 0
-		var currentBoard = this.state.board
-		var selectedPiece = this.state.selected.piece
-		switch (this.state.selected.piece) {
-			case "aircraftCarrier":
-				shipLength = 4
-			break;
-
-			case "battleship":
-				shipLength = 3
-			break;
-
-			case "destroyer":
-				shipLength = 3
-			break;
-
-			case "submarine":
-				shipLength = 2
-			break;
-
-			case "patrolShip":
-				shipLength = 1
-			break;
-		}
-		for (var i=0; i <= shipLength; i++ ) {
-			if (this.state.board.grid[row][col] !== "empty")
-				pieceCheck += 1
-		}
-		if (pieceCheck === 0) {
-				pieceCheck = 1
-			for (var i=0; i <= shipLength; i++ ) {
-				currentBoard.grid[row][col+i] = "ship"
-			}
-		}
-		this.setPieceAndBoard(selectedPiece, pieceCheck, currentBoard)
-	},
-	verticalCheck:function(row,col){
-		var shipLength
-		var pieceCheck = 0
+		var cellCheck = 0
 		var currentBoard = this.state.board
 		var selectedPiece = this.state.selected.piece
 		switch (selectedPiece) {
@@ -98,7 +60,7 @@ var Body = React.createClass({
 			break;
 
 			case "destroyer":
-				shipLength = 3
+				shipLength = 2
 			break;
 
 			case "submarine":
@@ -109,17 +71,63 @@ var Body = React.createClass({
 				shipLength = 1
 			break;
 		}
-		for (var i=0; i <= shipLength; i++ ) {
-			if (this.state.board.grid[row][col] !== "empty")
-				pieceCheck += 1
-		}
-		if (pieceCheck === 0) {
+		if (col + shipLength < 10) {
 			for (var i=0; i <= shipLength; i++ ) {
-				pieceCheck = 1
-				currentBoard.grid[row+i][col] = "ship"
+				if (col + shipLength < 10) {
+					if ( this.state.board.grid[row][col+i] !== "empty") {
+						cellCheck = null
+					}
+				}
+			}
+			if (cellCheck !== null) {
+				cellCheck = 1
+				for (var i=0; i <= shipLength; i++ ) {
+					currentBoard.grid[row][col+i] = "ship"
+				}
 			}
 		}
-		this.setPieceAndBoard(selectedPiece, pieceCheck, currentBoard)
+		this.setPieceAndBoard(selectedPiece, cellCheck, currentBoard)
+	},
+	verticalCheck:function(row,col){
+		var shipLength
+		var cellCheck = 0
+		var currentBoard = this.state.board
+		var selectedPiece = this.state.selected.piece
+		switch (selectedPiece) {
+			case "aircraftCarrier":
+				shipLength = 4
+			break;
+
+			case "battleship":
+				shipLength = 3
+			break;
+
+			case "destroyer":
+				shipLength = 2
+			break;
+
+			case "submarine":
+				shipLength = 2
+			break;
+
+			case "patrolShip":
+				shipLength = 1
+			break;
+		}
+		if (row+shipLength < 10) {
+			for (var i=0; i <= shipLength; i++ ) {
+				if ( this.state.board.grid[row+i][col] !== "empty") {
+					cellCheck = null
+				}
+			}
+			if (cellCheck !== null) {
+				cellCheck = 1
+				for (var i=0; i <= shipLength; i++ ) {
+					currentBoard.grid[row+i][col] = "ship"
+				}
+			}
+		}
+		this.setPieceAndBoard(selectedPiece, cellCheck, currentBoard)
 	},
 	setPieceAndBoard:function(selectedPiece, piecesLeft, currentBoard) {
 		debugger
@@ -170,27 +178,32 @@ var Body = React.createClass({
 		switch (selection.piece) {
 			case "aircraftCarrier": 
 				this.setState({
+					selected: selection,
 					aircraftCarrier: selection.direction,
 				});
 				break;
 
 			case "battleship": 
 				this.setState({
+					selected: selection,
 					battleship: selection.direction
 				});
 				break;
 			case "destroyer":
 				this.setState({
+					selected: selection,
 					destroyer: selection.direction
 				});
 				break;
 			case "submarine":
 				this.setState({
+					selected: selection,
 					submarine: selection.direction
 				});
 				break;
 			case "patrolShip":
 				this.setState({
+					selected: selection,
 					patrolShip: selection.direction
 				});
 				break;
