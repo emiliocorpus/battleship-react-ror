@@ -5,7 +5,7 @@ var GridCell = React.createClass({
 	render:function() {
 		var display;
 		switch (this.props.cellStatus) {
-			case null:
+			case "empty":
 				display = "board-cell-empty";
 				break;
 			case "ship":

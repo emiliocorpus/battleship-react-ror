@@ -1,13 +1,13 @@
 var PatrolShipPiece = React.createClass({
 	handleSingleClick:function(){
-		this.props.sendSelection('patrol-ship')
+		this.props.sendSelection({piece:"patrolShip", direction:this.props.direction})
 	},
 	handleDoubleClick:function(){
 		if (this.props.direction==="hz") {
-			this.props.handleDirectionChange("patrol-ship", "vert")
+			this.props.handleDirectionChange({piece:"patrolShip", direction:"vert"})
 		}
 		else {
-			this.props.handleDirectionChange("patrol-ship","hz")
+			this.props.handleDirectionChange({piece:"patrolShip", direction:"hz"})
 		}
 	},
 	render:function() {

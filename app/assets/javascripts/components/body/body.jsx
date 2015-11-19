@@ -4,16 +4,16 @@ var Body = React.createClass({
 			started:null,
 			board: { 
 					grid: {
-							a: [null, null, null, null, null, null, null, null, null, null],
-							b: [null, null, null, null, null, null, null, null, null, null],
-							c: [null, null, null, null, null, null, null, null, null, null],
-							d: [null, null, null, null, null, null, null, null, null, null],
-							e: [null, null, null, null, null, null, null, null, null, null],
-							f: [null, null, null, null, null, null, null, null, null, null],
-							g: [null, null, null, null, null, null, null, null, null, null],
-							h: [null, null, null, null, null, null, null, null, null, null],
-							i: [null, null, null, null, null, null, null, null, null, null],
-							j: [null, null, null, null, null, null, null, null, null, null]
+							0: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							1: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							2: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							3: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							4: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							5: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							6: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							7: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							8: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+							9: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]
 						}
 			},
 			aircraftCarrier: "hz",
@@ -26,28 +26,137 @@ var Body = React.createClass({
 			destroyerAmount: 2,
 			patrolShip: "hz",
 			patrolShipAmount: 2,
-			selected: null	
+			selected: {piece:null,direction:null}
 		}
 	},
+	makePieceSelection:function(selection){
+		
+		this.setState({
+			selected: selection
+		})
+	},
 	placePiece:function(row, col){
-		switch (this.state.selected) {
-			case "aircraft-carrier":
-				// SOME FUNCTION THAT INSERTS PIECE IF VALID
-				this.pieceCheck(row,col)
+		if (this.state.selected.direction !== null) {
+			if (this.state.selected.direction==="hz") {
+				this.horizontalCheck(row,col)
+			}
+			else {
+				this.verticalCheck(row,col)
+			}
+		}
+	},
+	horizontalCheck:function(row, col){
+		var shipLength
+		var pieceCheck = 0
+		var currentBoard = this.state.board
+		var selectedPiece = this.state.selected.piece
+		switch (this.state.selected.piece) {
+			case "aircraftCarrier":
+				shipLength = 4
+			break;
+
+			case "battleship":
+				shipLength = 3
+			break;
+
+			case "destroyer":
+				shipLength = 3
+			break;
+
+			case "submarine":
+				shipLength = 2
+			break;
+
+			case "patrolShip":
+				shipLength = 1
+			break;
+		}
+		for (var i=0; i <= shipLength; i++ ) {
+			if (this.state.board.grid[row][col] !== "empty")
+				pieceCheck += 1
+		}
+		if (pieceCheck === 0) {
+				pieceCheck = 1
+			for (var i=0; i <= shipLength; i++ ) {
+				currentBoard.grid[row][col+i] = "ship"
+			}
+		}
+		this.setPieceAndBoard(selectedPiece, pieceCheck, currentBoard)
+	},
+	verticalCheck:function(row,col){
+		var shipLength
+		var pieceCheck = 0
+		var currentBoard = this.state.board
+		var selectedPiece = this.state.selected.piece
+		switch (selectedPiece) {
+			case "aircraftCarrier":
+				shipLength = 4
+			break;
+
+			case "battleship":
+				shipLength = 3
+			break;
+
+			case "destroyer":
+				shipLength = 3
+			break;
+
+			case "submarine":
+				shipLength = 2
+			break;
+
+			case "patrolShip":
+				shipLength = 1
+			break;
+		}
+		for (var i=0; i <= shipLength; i++ ) {
+			if (this.state.board.grid[row][col] !== "empty")
+				pieceCheck += 1
+		}
+		if (pieceCheck === 0) {
+			for (var i=0; i <= shipLength; i++ ) {
+				pieceCheck = 1
+				currentBoard.grid[row+i][col] = "ship"
+			}
+		}
+		this.setPieceAndBoard(selectedPiece, pieceCheck, currentBoard)
+	},
+	setPieceAndBoard:function(selectedPiece, piecesLeft, currentBoard) {
+		debugger
+		switch (selectedPiece) {
+			case "aircraftCarrier":
+				this.setState({
+					"aircraftCarrierAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
+					board: currentBoard
+				});
+				break;
+			case "battleship":
+				this.setState({
+					"battleshipAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
+					board: currentBoard
+				});
+				break;
+			case "destroyer":
+				this.setState({
+					"destroyerAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
+					board: currentBoard
+				});
+				break;
+			case "submarine":
+				this.setState({
+					"submarineAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
+					board: currentBoard
+				});
+				break;
+			case "patrolShip":
+				this.setState({
+					"patrolShipAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
+					board: currentBoard
+				});
 				break;
 		}
 	},
 
-
-	pieceCheck:function(row, col) {
-		var currentBoard = this.state.board
-		if (currentBoard.grid[row][col]===null) {
-			currentBoard.grid[row][col] = "ship"
-		}
-		this.setState({
-			board: currentBoard
-		})
-	},
 
 
 	startNewGame:function() {
@@ -55,38 +164,34 @@ var Body = React.createClass({
 			started: true,
 		})
 	},
-	makePieceSelection:function(selection){
+	
+	changePieceDirection:function(selection){
 		console.log(selection)
-		this.setState({
-			selected: selection
-		})
-	},
-	changePieceDirection:function(piece, direction){
-		switch (piece) {
-			case "aircraft-carrier": 
+		switch (selection.piece) {
+			case "aircraftCarrier": 
 				this.setState({
-					aircraftCarrier: direction,
+					aircraftCarrier: selection.direction,
 				});
 				break;
 
 			case "battleship": 
 				this.setState({
-					battleship: direction
+					battleship: selection.direction
 				});
 				break;
 			case "destroyer":
 				this.setState({
-					destroyer: direction
+					destroyer: selection.direction
 				});
 				break;
 			case "submarine":
 				this.setState({
-					submarine: direction
+					submarine: selection.direction
 				});
 				break;
-			case "patrol-ship":
+			case "patrolShip":
 				this.setState({
-					patrolShip: direction
+					patrolShip: selection.direction
 				});
 				break;
 		}

@@ -1,13 +1,13 @@
 var DestroyerPiece = React.createClass({
 	handleSingleClick:function(){
-		this.props.sendSelection('destroyer')
+		this.props.sendSelection({piece:'destroyer',direction:this.props.direction})
 	},
 	handleDoubleClick:function(){
 		if (this.props.direction==="hz") {
-			this.props.handleDirectionChange("destroyer", "vert")
+			this.props.handleDirectionChange({piece:"destroyer", direction:"vert"})
 		}
 		else {
-			this.props.handleDirectionChange("destroyer","hz")
+			this.props.handleDirectionChange({piece:"destroyer",direction:"hz"})
 		}
 	},
 	render:function() {

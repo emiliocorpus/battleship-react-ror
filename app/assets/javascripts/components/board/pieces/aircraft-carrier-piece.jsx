@@ -1,13 +1,13 @@
 var AircraftCarrierPiece = React.createClass({
 	handleSingleClick:function(){
-		this.props.sendSelection('aircraft-carrier')
+		this.props.sendSelection({piece:"aircraftCarrier", direction:this.props.direction})
 	},
 	handleDoubleClick:function(){
 		if (this.props.direction==="hz") {
-			this.props.handleDirectionChange("aircraft-carrier", "vert")
+			this.props.handleDirectionChange({piece:"aircraftCarrier", direction:"vert"})
 		}
 		else {
-			this.props.handleDirectionChange("aircraft-carrier","hz")
+			this.props.handleDirectionChange({piece:"aircraftCarrier",direction:"hz"})
 		}
 	},
 	render:function() {

@@ -29,142 +29,142 @@ var Board = React.createClass({
 					<tbody>
 						<tr>
 							<th colSpan="1">1</th>
-							<GridCell row="a" col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[0]} />
-							<GridCell row="a" col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[1]} />
-							<GridCell row="a" col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[2]} />
-							<GridCell row="a" col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[3]} />
-							<GridCell row="a" col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[4]} />
-							<GridCell row="a" col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[5]} />
-							<GridCell row="a" col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[6]} />
-							<GridCell row="a" col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[7]} />
-							<GridCell row="a" col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[8]} />
-							<GridCell row="a" col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.a[9]} />
+							<GridCell row={0} col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][0]} />
+							<GridCell row={0} col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][1]} />
+							<GridCell row={0} col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][2]} />
+							<GridCell row={0} col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][3]} />
+							<GridCell row={0} col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][4]} />
+							<GridCell row={0} col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][5]} />
+							<GridCell row={0} col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][6]} />
+							<GridCell row={0} col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][7]} />
+							<GridCell row={0} col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][8]} />
+							<GridCell row={0} col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[0][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">2</th>
-							<GridCell row="b" col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[0]} />
-							<GridCell row="b" col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[1]} />
-							<GridCell row="b" col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[2]} />
-							<GridCell row="b" col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[3]} />
-							<GridCell row="b" col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[4]} />
-							<GridCell row="b" col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[5]} />
-							<GridCell row="b" col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[6]} />
-							<GridCell row="b" col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[7]} />
-							<GridCell row="b" col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[8]} />
-							<GridCell row="b" col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.b[9]} />
+							<GridCell row={1} col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][0]} />
+							<GridCell row={1} col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][1]} />
+							<GridCell row={1} col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][2]} />
+							<GridCell row={1} col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][3]} />
+							<GridCell row={1} col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][4]} />
+							<GridCell row={1} col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][5]} />
+							<GridCell row={1} col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][6]} />
+							<GridCell row={1} col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][7]} />
+							<GridCell row={1} col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][8]} />
+							<GridCell row={1} col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[1][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">3</th>
-							<GridCell row="c" col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[0]} />
-							<GridCell row="c" col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[1]} />
-							<GridCell row="c" col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[2]} />
-							<GridCell row="c" col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[3]} />
-							<GridCell row="c" col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[4]} />
-							<GridCell row="c" col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[5]} />
-							<GridCell row="c" col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[6]} />
-							<GridCell row="c" col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[7]} />
-							<GridCell row="c" col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[8]} />
-							<GridCell row="c" col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.c[9]} />
+							<GridCell row={2} col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][0]} />
+							<GridCell row={2} col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][1]} />
+							<GridCell row={2} col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][2]} />
+							<GridCell row={2} col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][3]} />
+							<GridCell row={2} col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][4]} />
+							<GridCell row={2} col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][5]} />
+							<GridCell row={2} col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][6]} />
+							<GridCell row={2} col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][7]} />
+							<GridCell row={2} col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][8]} />
+							<GridCell row={2} col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[2][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">4</th>
-							<GridCell row="d" col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[0]} />
-							<GridCell row="d" col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[1]} />
-							<GridCell row="d" col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[2]} />
-							<GridCell row="d" col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[3]} />
-							<GridCell row="d" col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[4]} />
-							<GridCell row="d" col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[5]} />
-							<GridCell row="d" col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[6]} />
-							<GridCell row="d" col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[7]} />
-							<GridCell row="d" col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[8]} />
-							<GridCell row="d" col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.d[9]} />
+							<GridCell row={3} col={0} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][0]} />
+							<GridCell row={3} col={1} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][1]} />
+							<GridCell row={3} col={2} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][2]} />
+							<GridCell row={3} col={3} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][3]} />
+							<GridCell row={3} col={4} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][4]} />
+							<GridCell row={3} col={5} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][5]} />
+							<GridCell row={3} col={6} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][6]} />
+							<GridCell row={3} col={7} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][7]} />
+							<GridCell row={3} col={8} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][8]} />
+							<GridCell row={3} col={9} placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[3][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">5</th>
-							<GridCell row="e" col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[0]} />
-							<GridCell row="e" col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[1]} />
-							<GridCell row="e" col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[2]} />
-							<GridCell row="e" col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[3]} />
-							<GridCell row="e" col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[4]} />
-							<GridCell row="e" col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[5]} />
-							<GridCell row="e" col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[6]} />
-							<GridCell row="e" col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[7]} />
-							<GridCell row="e" col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[8]} />
-							<GridCell row="e" col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.e[9]} />
+							<GridCell row={4} col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][0]} />
+							<GridCell row={4} col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][1]} />
+							<GridCell row={4} col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][2]} />
+							<GridCell row={4} col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][3]} />
+							<GridCell row={4} col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][4]} />
+							<GridCell row={4} col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][5]} />
+							<GridCell row={4} col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][6]} />
+							<GridCell row={4} col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][7]} />
+							<GridCell row={4} col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][8]} />
+							<GridCell row={4} col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[4][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">6</th>
-							<GridCell row="f" col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[0]} />
-							<GridCell row="f" col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[1]} />
-							<GridCell row="f" col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[2]} />
-							<GridCell row="f" col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[3]} />
-							<GridCell row="f" col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[4]} />
-							<GridCell row="f" col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[5]} />
-							<GridCell row="f" col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[6]} />
-							<GridCell row="f" col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[7]} />
-							<GridCell row="f" col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[8]} />
-							<GridCell row="f" col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.f[9]} />
+							<GridCell row={5} col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][0]} />
+							<GridCell row={5} col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][1]} />
+							<GridCell row={5} col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][2]} />
+							<GridCell row={5} col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][3]} />
+							<GridCell row={5} col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][4]} />
+							<GridCell row={5} col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][5]} />
+							<GridCell row={5} col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][6]} />
+							<GridCell row={5} col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][7]} />
+							<GridCell row={5} col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][8]} />
+							<GridCell row={5} col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[5][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">7</th>
-							<GridCell row="g" col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[0]} />
-							<GridCell row="g" col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[1]} />
-							<GridCell row="g" col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[2]} />
-							<GridCell row="g" col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[3]} />
-							<GridCell row="g" col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[4]} />
-							<GridCell row="g" col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[5]} />
-							<GridCell row="g" col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[6]} />
-							<GridCell row="g" col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[7]} />
-							<GridCell row="g" col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[8]} />
-							<GridCell row="g" col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.g[9]} />
+							<GridCell row={6} col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][0]} />
+							<GridCell row={6} col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][1]} />
+							<GridCell row={6} col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][2]} />
+							<GridCell row={6} col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][3]} />
+							<GridCell row={6} col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][4]} />
+							<GridCell row={6} col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][5]} />
+							<GridCell row={6} col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][6]} />
+							<GridCell row={6} col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][7]} />
+							<GridCell row={6} col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][8]} />
+							<GridCell row={6} col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[6][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">8</th>
-							<GridCell row="h" col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[0]} />
-							<GridCell row="h" col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[1]} />
-							<GridCell row="h" col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[2]} />
-							<GridCell row="h" col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[3]} />
-							<GridCell row="h" col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[4]} />
-							<GridCell row="h" col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[5]} />
-							<GridCell row="h" col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[6]} />
-							<GridCell row="h" col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[7]} />
-							<GridCell row="h" col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[8]} />
-							<GridCell row="h" col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.h[9]} />
+							<GridCell row={7} col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][0]} />
+							<GridCell row={7} col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][1]} />
+							<GridCell row={7} col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][2]} />
+							<GridCell row={7} col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][3]} />
+							<GridCell row={7} col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][4]} />
+							<GridCell row={7} col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][5]} />
+							<GridCell row={7} col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][6]} />
+							<GridCell row={7} col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][7]} />
+							<GridCell row={7} col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][8]} />
+							<GridCell row={7} col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[7][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">9</th>
-							<GridCell row="i" col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[0]} />
-							<GridCell row="i" col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[1]} />
-							<GridCell row="i" col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[2]} />
-							<GridCell row="i" col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[3]} />
-							<GridCell row="i" col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[4]} />
-							<GridCell row="i" col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[5]} />
-							<GridCell row="i" col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[6]} />
-							<GridCell row="i" col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[7]} />
-							<GridCell row="i" col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[8]} />
-							<GridCell row="i" col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.i[9]} />
+							<GridCell row={8} col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][0]} />
+							<GridCell row={8} col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][1]} />
+							<GridCell row={8} col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][2]} />
+							<GridCell row={8} col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][3]} />
+							<GridCell row={8} col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][4]} />
+							<GridCell row={8} col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][5]} />
+							<GridCell row={8} col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][6]} />
+							<GridCell row={8} col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][7]} />
+							<GridCell row={8} col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][8]} />
+							<GridCell row={8} col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[8][9]} />
 						</tr>
 	
 						<tr>
 							<th colSpan="1">10</th>
-							<GridCell row="j" col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[0]} />
-							<GridCell row="j" col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[1]} />
-							<GridCell row="j" col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[2]} />
-							<GridCell row="j" col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[3]} />
-							<GridCell row="j" col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[4]} />
-							<GridCell row="j" col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[5]} />
-							<GridCell row="j" col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[6]} />
-							<GridCell row="j" col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[7]} />
-							<GridCell row="j" col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[8]} />
-							<GridCell row="j" col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid.j[9]} />
+							<GridCell row={9} col={0}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][0]} />
+							<GridCell row={9} col={1}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][1]} />
+							<GridCell row={9} col={2}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][2]} />
+							<GridCell row={9} col={3}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][3]} />
+							<GridCell row={9} col={4}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][4]} />
+							<GridCell row={9} col={5}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][5]} />
+							<GridCell row={9} col={6}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][6]} />
+							<GridCell row={9} col={7}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][7]} />
+							<GridCell row={9} col={8}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][8]} />
+							<GridCell row={9} col={9}  placePiece={this.placePiece} data={this.props.data}cellStatus={this.props.data.board.grid[9][9]} />
 							</tr>
 						</tbody>
 				</table>
