@@ -4,16 +4,16 @@ var Body = React.createClass({
 			started:null,
 			board: { 
 					grid: {
-							0: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							1: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							2: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							3: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							4: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							5: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							6: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							7: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							8: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-							9: ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]
+							0: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							1: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							2: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							3: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							4: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							5: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							6: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							7: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							8: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+							9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
 						}
 			},
 			aircraftCarrier: "hz",
@@ -74,7 +74,7 @@ var Body = React.createClass({
 		if (col + shipLength < 10) {
 			for (var i=0; i <= shipLength; i++ ) {
 				if (col + shipLength < 10) {
-					if ( this.state.board.grid[row][col+i] !== "empty") {
+					if ( this.state.board.grid[row][col+i].cellType !== "empty") {
 						cellCheck = null
 					}
 				}
@@ -82,7 +82,9 @@ var Body = React.createClass({
 			if (cellCheck !== null) {
 				cellCheck = 1
 				for (var i=0; i <= shipLength; i++ ) {
-					currentBoard.grid[row][col+i] = "ship"
+					currentBoard.grid[row][col+i].cellType = "ship"
+					currentBoard.grid[row][col+i].shipType = selectedPiece
+					currentBoard.grid[row][col+i].shipId = this.state[selectedPiece + "Amount"] + 1
 				}
 			}
 		}
@@ -116,14 +118,16 @@ var Body = React.createClass({
 		}
 		if (row+shipLength < 10) {
 			for (var i=0; i <= shipLength; i++ ) {
-				if ( this.state.board.grid[row+i][col] !== "empty") {
+				if ( this.state.board.grid[row+i][col].cellType !== "empty") {
 					cellCheck = null
 				}
 			}
 			if (cellCheck !== null) {
 				cellCheck = 1
 				for (var i=0; i <= shipLength; i++ ) {
-					currentBoard.grid[row+i][col] = "ship"
+					currentBoard.grid[row+i][col].cellType = "ship"
+					currentBoard.grid[row+i][col].shipType = selectedPiece
+					currentBoard.grid[row+i][col].shipId = this.state[selectedPiece + "Amount"] + 1
 				}
 			}
 		}
@@ -174,6 +178,7 @@ var Body = React.createClass({
 	},
 	
 	changePieceDirection:function(selection){
+		debugger
 		console.log(selection)
 		switch (selection.piece) {
 			case "aircraftCarrier": 
