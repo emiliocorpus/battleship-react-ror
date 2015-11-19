@@ -13,10 +13,10 @@ var DestroyerPiece = React.createClass({
 	render:function() {
 		var piece;
 		if (this.props.direction === "hz") {
-			piece = <DestroyerHz />
+			piece = <DestroyerHz amountLeft={this.props.amountLeft}/>
 		}
 		else {
-			piece = <DestroyerVert />
+			piece = <DestroyerVert amountLeft={this.props.amountLeft}/>
 		}
 		return (
 			<div id="destroyer-piece" onDoubleClick={this.handleDoubleClick} onClick={this.handleSingleClick}>

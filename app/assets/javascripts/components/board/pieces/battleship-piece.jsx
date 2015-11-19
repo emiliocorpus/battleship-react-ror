@@ -13,10 +13,10 @@ var BattleshipPiece = React.createClass({
 	render:function() {
 		var piece;
 		if (this.props.direction === "hz") {
-			piece = <BattleshipHz />
+			piece = <BattleshipHz amountLeft={this.props.amountLeft}/>
 		}
 		else {
-			piece = <BattleshipVert />
+			piece = <BattleshipVert amountLeft={this.props.amountLeft} />
 		}
 		return (
 			<div id="battleship-piece" onDoubleClick={this.handleDoubleClick} onClick={this.handleSingleClick}>

@@ -13,10 +13,10 @@ var SubmarinePiece = React.createClass({
 	render:function() {
 		var piece;
 		if (this.props.direction === "hz") {
-			piece = <SubmarineHz />
+			piece = <SubmarineHz amountLeft={this.props.amountLeft}/>
 		}
 		else {
-			piece = <SubmarineVert />
+			piece = <SubmarineVert amountLeft={this.props.amountLeft}/>
 		}
 		return (
 			<div id="submarine-piece" onDoubleClick={this.handleDoubleClick} onClick={this.handleSingleClick}>

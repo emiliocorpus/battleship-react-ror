@@ -12,11 +12,11 @@ var AircraftCarrierPiece = React.createClass({
 	},
 	render:function() {
 		var piece;
-		if (this.props.direction === "hz") {
-			piece = <AircraftCarrierHz />
+		if (this.props.direction==="hz") {
+			piece = <AircraftCarrierHz amountLeft={this.props.amountLeft}/>
 		}
 		else {
-			piece = <AircraftCarrierVert />
+			piece = <AircraftCarrierVert amountLeft={this.props.amountLeft}/>
 		}
 		return (
 			<div id="aircraft-carrier-piece" onDoubleClick={this.handleDoubleClick} onClick={this.handleSingleClick}>

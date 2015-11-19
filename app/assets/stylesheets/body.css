@@ -2,9 +2,9 @@
 	min-width:1100px;
 }
 #body-container {
-	padding: 3%;
+	padding: 2%;
 	width:100%;
-	margin-top:50px;
+	margin-top:25px;
 	text-align:center;
 }
 
@@ -50,8 +50,15 @@
 	margin:0 auto;
 	color:white;
 }
-.board-cell {
+.board-cell-empty {
 	border:1px solid #03253F;
+	width:50px;
+	height:50px;
+}
+
+.board-cell-ship {
+	background-color:#A7A7A7;
+	border:1px solid black;
 	width:50px;
 	height:50px;
 }
@@ -82,13 +89,13 @@
 	margin: 5%;
 }
 
-
 .ship-cell {
 	background-color:#A7A7A7;
 	border: 1px solid black;
 	height:20px;
 	width:20px;
 }
+
 
 .amount {
 	background-color: #738A9C;

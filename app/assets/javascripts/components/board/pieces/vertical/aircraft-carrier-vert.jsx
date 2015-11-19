@@ -19,7 +19,7 @@ var AircraftCarrierVert = React.createClass({
 						<td className="ship-cell"></td>
 					</tr>
 					<tr>
-						<td className="amount"> x1</td>
+						<td className="amount"> x{this.props.amountLeft}</td>
 					</tr>
 				</tbody>
 			</table>

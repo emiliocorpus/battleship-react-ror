@@ -13,10 +13,10 @@ var PatrolShipPiece = React.createClass({
 	render:function() {
 		var piece;
 		if (this.props.direction === "hz") {
-			piece = <PatrolShipHz />
+			piece = <PatrolShipHz amountLeft={this.props.amountLeft}/>
 		}
 		else {
-			piece = <PatrolShipVert />
+			piece = <PatrolShipVert amountLeft={this.props.amountLeft}/>
 		}
 		return (
 			<div id="patrol-ship-piece" onDoubleClick={this.handleDoubleClick} onClick={this.handleSingleClick}>
