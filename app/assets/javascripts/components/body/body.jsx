@@ -99,6 +99,49 @@ var Body = React.createClass({
 			}
 		}
 
+
+		// CHECK FOR ADJACENT PIECES AT HEAD AND TAIL OF SHIP
+		if (valid) {
+			// HEAD CHECK
+
+			if (col - 1 > -1 ) { 
+				if( userBoard[row][col-1].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+			// TAIL CHECK
+
+			if (col + shipLength + 1 < 10 ) { 
+				if( userBoard[row+shipLength][col+1].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+		}
+
+		// CHECK FOR ADJACENT PIECES ON SIDES OF SHIP
+
+		if (valid) {
+			// LEFT SIDE CHECK
+			if (row -1 > -1) {
+				if( userBoard[row-1][col].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+
+			// RIGHT SIDE CHECK
+			if (row + 1 < 10) {
+				if( userBoard[row+1][col].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+		}
+
+
+
 		// PLACES THE PIECE
 		if (valid) {
 			for (var i=0; i <= shipLength; i++) {
@@ -131,15 +174,60 @@ var Body = React.createClass({
 		if (row + shipLength > 9 || piecesLeft <= 0) {
 			valid = 0
 		}
-		//IF POSSIBLE VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE
+		//IF POSSIBLE VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE LAYOUT
 		if (valid) {
 			for (var i=0; i <= shipLength; i++) {
 				if (userBoard[row+i][col].cellType !== "empty"  ) {
 					valid = 0
 					console.log('invalid')
 				}
+
 			}
 		}
+
+		// CHECK FOR ADJACENT PIECES AT HEAD AND TAIL OF SHIP
+		if (valid) {
+			// HEAD CHECK
+
+			if (row - 1 > -1 ) { 
+				if( userBoard[row-1][col].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+			// TAIL CHECK
+
+			if (row + shipLength + 1 < 10 ) { 
+				if( userBoard[row+shipLength+1][col].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+		}
+
+		// CHECK FOR ADJACENT PIECES ON SIDES OF SHIP
+
+		if (valid) {
+			// LEFT SIDE CHECK
+			if (col -1 > -1) {
+				if( userBoard[row][col-1].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+
+			// RIGHT SIDE CHECK
+			if (col + 1 < 10) {
+				if( userBoard[row][col+1].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+		}
+
+
+
+
 
 		// PLACES THE PIECE
 		if (valid) {
