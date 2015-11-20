@@ -123,19 +123,24 @@ var Body = React.createClass({
 		// CHECK FOR ADJACENT PIECES ON SIDES OF SHIP
 
 		if (valid) {
-			// LEFT SIDE CHECK
+			// TOP SIDE CHECK
 			if (row -1 > -1) {
-				if( userBoard[row-1][col].cellType !== "empty") {
-					valid = 0
-					console.log("invalid")
+				for (var i=0; i < shipLength; i++) {
+					if( userBoard[row-1][col+i].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
 				}
+				
 			}
 
-			// RIGHT SIDE CHECK
+			// BOTTOM SIDE CHECK
 			if (row + 1 < 10) {
-				if( userBoard[row+1][col].cellType !== "empty") {
-					valid = 0
-					console.log("invalid")
+				for (var i=0; i < shipLength; i++) {
+					if( userBoard[row+1][col+i].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
 				}
 			}
 		}
@@ -210,23 +215,25 @@ var Body = React.createClass({
 		if (valid) {
 			// LEFT SIDE CHECK
 			if (col -1 > -1) {
-				if( userBoard[row][col-1].cellType !== "empty") {
-					valid = 0
-					console.log("invalid")
+				for (var i=0;i< shipLength; i++){
+					if( userBoard[row+i][col-1].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
 				}
+					
 			}
 
 			// RIGHT SIDE CHECK
 			if (col + 1 < 10) {
-				if( userBoard[row][col+1].cellType !== "empty") {
-					valid = 0
-					console.log("invalid")
+				for (var i=0; i < shipLength;i++) {
+					if( userBoard[row+i][col+1].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
 				}
 			}
 		}
-
-
-
 
 
 		// PLACES THE PIECE
