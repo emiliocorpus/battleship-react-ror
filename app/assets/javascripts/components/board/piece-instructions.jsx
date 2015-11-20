@@ -5,7 +5,16 @@ var PieceInstructions = React.createClass({
 	manageSelection:function(selection){
 		this.props.handleSelection(selection)
 	},
+	handleUndMove:function(){
+		this.props.undoMove()
+	},
 	render:function() {
+		var undoButton;
+		if (this.props.data.previousStatesPriorToStart.length > 0) {
+			undoButton = <UndoButton handleUndo={this.handleUndoMove}/>
+		}
+
+
 		return (
 			<div id="instructions">
 				<h3>HOW TO PLACE SHIPS</h3>
@@ -25,6 +34,9 @@ var PieceInstructions = React.createClass({
 					<DestroyerPiece data={this.props.data} direction={this.props.data.userPieces.destroyer.direction}   handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
 					<PatrolShipPiece data={this.props.data} direction={this.props.data.userPieces.patrolShip.direction} handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
 				</div>
+
+				{undoButton}
+				
 			</div>
 		)
 	}

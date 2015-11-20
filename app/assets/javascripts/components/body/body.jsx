@@ -48,9 +48,41 @@ var Body = React.createClass({
 					ships: [{ placed: false, health: 2,direction: "hz"}, { placed: false, health: 2, direction: "hz"}]
 				}
 			},
-			selected: {piece:0,direction:0}
+			selected: {piece:0,direction:0},
+			previousStatesPriorToStart: []
 		}
 	},
+
+	saveLastBoardState:function(){
+		var previous = this.state.previousStatesPriorToStart
+		var prevBoard = this.state.board
+		var prevPieces = this.state.userPieces
+		var last = {
+			prevBoard: prevBoard,
+			prevPieces: prevPieces
+		}
+		previous.push(last)
+		this.setState({
+			previousStatesPriorToStart: previous
+		})
+		debugger
+	},
+
+	undoLastMove:function(){
+
+		var previousStates = this.state.previousStatesPriorToStart
+		var lastState = previousStates.pop()
+		debugger
+		this.setState({
+			previousStatesPriorToStart: previousStates,
+			board: lastState.prevBoard,
+			userPieces:lastState.prevPieces
+		})
+
+		debugger
+	},
+
+
 
 	// PLACING PIECES
 	makePieceSelection:function(selection){
@@ -61,7 +93,7 @@ var Body = React.createClass({
 	},
 	placePiece:function(row, col){
 		var selectedPiece = this.state.selected.piece
-		if (this.state.userPieces[selectedPiece].piecesLeft <= 0 ||this.state.selected.piece===0) {
+		if (this.state.selected.piece===0 || this.state.userPieces[selectedPiece].piecesLeft <= 0) {
 			return
 		}		
 		else {
@@ -113,7 +145,7 @@ var Body = React.createClass({
 			// TAIL CHECK
 
 			if (col + shipLength + 1 < 10 ) { 
-				if( userBoard[row+shipLength][col+1].cellType !== "empty") {
+				if( userBoard[row][col+shipLength+1].cellType !== "empty") {
 					valid = 0
 					console.log("invalid")
 				}
@@ -149,6 +181,8 @@ var Body = React.createClass({
 
 		// PLACES THE PIECE
 		if (valid) {
+			debugger
+			this.saveLastBoardState()
 			for (var i=0; i <= shipLength; i++) {
 				userBoard[row][col+i].cellType = "ship"
 				userBoard[row][col+i].shipType = selectedPiece
@@ -238,6 +272,7 @@ var Body = React.createClass({
 
 		// PLACES THE PIECE
 		if (valid) {
+			this.saveLastBoardState()
 			for (var i=0; i <= shipLength; i++) {
 				userBoard[row+i][col].cellType = "ship"
 				userBoard[row+i][col].shipType = selectedPiece
@@ -259,14 +294,6 @@ var Body = React.createClass({
 	},
 
 
-
-
-
-
-
-
-
-
 	startNewGame:function() {
 		this.setState({
 			started: true,
@@ -278,7 +305,6 @@ var Body = React.createClass({
 		var copiedPieces = this.state.userPieces
 		var totalPieces = copiedPieces[selection.piece].ships.length
 		copiedPieces[selection.piece].direction = selection.direction
-		debugger
 		this.setState({
 				selected: selection,
 				userPieces: copiedPieces
@@ -290,7 +316,7 @@ var Body = React.createClass({
 			toBeShown = <NewGameButton startGame={this.startNewGame} />
 		}
 		else {
-			toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection} handlePieceSelection={this.makePieceSelection} placePiece={this.placePiece}/>
+			toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection} handlePieceSelection={this.makePieceSelection} placePiece={this.placePiece} handleRemovePiece={this.undoLastMove}/>
 		}
 		return (
 			<div id="body-container" className="">
