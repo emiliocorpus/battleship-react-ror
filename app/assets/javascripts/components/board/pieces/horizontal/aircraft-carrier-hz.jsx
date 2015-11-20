@@ -9,7 +9,7 @@ var AircraftCarrierHz = React.createClass({
 						<td className="ship-cell"></td>
 						<td className="ship-cell"></td>
 						<td className="ship-cell"></td>
-						<td className="amount"> x{this.props.data.aircraftCarrierAmount}</td>
+						<td className="amount"> x{this.props.data.userPieces.aircraftCarrier.piecesLeft}</td>
 					</tr>
 				</tbody>
 			</table>

@@ -1,9 +1,9 @@
 var SubmarinePiece = React.createClass({
 	handleSingleClick:function(){
-		this.props.sendSelection({piece:"submarine", direction:this.props.data.submarine})
+		this.props.sendSelection({piece:"submarine", direction:this.props.direction})
 	},
 	handleDoubleClick:function(){
-		if (this.props.data.submarine==="hz") {
+		if (this.props.direction==="hz") {
 			this.props.handleDirectionChange({piece:"submarine", direction:"vert"})
 		}
 		else {
@@ -12,7 +12,7 @@ var SubmarinePiece = React.createClass({
 	},
 	pieceDirection:function(){
 		var piece;
-		if (this.props.data.submarine === "hz") {
+		if (this.props.data.userPieces.submarine.direction === "hz") {
 			piece = <SubmarineHz data={this.props.data}/>
 		}
 		else {

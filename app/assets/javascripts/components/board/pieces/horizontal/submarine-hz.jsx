@@ -7,7 +7,7 @@ var SubmarineHz = React.createClass({
 						<td className="ship-cell"></td>
 						<td className="ship-cell"></td>
 						<td className="ship-cell"></td>
-						<td className="amount">x{this.props.data.submarineAmount}</td>
+						<td className="amount">x{this.props.data.userPieces.submarine.piecesLeft}</td>
 					</tr>
 				</tbody>
 			</table>

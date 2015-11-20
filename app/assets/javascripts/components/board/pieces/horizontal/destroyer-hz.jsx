@@ -7,7 +7,7 @@ var DestroyerHz = React.createClass({
 						<td className="ship-cell"></td>
 						<td className="ship-cell"></td>
 						<td className="ship-cell"></td>
-						<td className="amount">x{this.props.data.destroyerAmount}</td>
+						<td className="amount">x{this.props.data.userPieces.destroyer.piecesLeft}</td>
 					</tr>
 				</tbody>
 			</table>

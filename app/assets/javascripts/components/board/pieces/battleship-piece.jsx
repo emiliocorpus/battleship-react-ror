@@ -1,9 +1,9 @@
 var BattleshipPiece = React.createClass({
 	handleSingleClick:function(){
-		this.props.sendSelection({piece:'battleship', direction: this.props.data.battleship})
+		this.props.sendSelection({piece:'battleship', direction: this.props.direction})
 	},
 	handleDoubleClick:function(){
-		if (this.props.data.battleship==="hz") {
+		if (this.props.direction==="hz") {
 			this.props.handleDirectionChange({piece:"battleship", direction:"vert"})
 		}
 		else {
@@ -12,7 +12,7 @@ var BattleshipPiece = React.createClass({
 	},
 	pieceDirection:function(){
 		var piece;
-		if (this.props.data.battleship === "hz") {
+		if (this.props.data.userPieces.battleship.direction === "hz") {
 			piece = <BattleshipHz data={this.props.data}/>
 		}
 		else {

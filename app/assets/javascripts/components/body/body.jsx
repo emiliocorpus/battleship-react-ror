@@ -16,21 +16,41 @@ var Body = React.createClass({
 							9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
 						}
 			},
-			aircraftCarrier: "hz",
-			aircraftCarrierAmount: 1,
-			battleship: "hz",
-			battleshipAmount: 1,
-			submarine: "hz",
-			submarineAmount: 1,
-			destroyer: "hz",
-			destroyerAmount: 2,
-			patrolShip: "hz",
-			patrolShipAmount: 2,
-			selected: {piece:null,direction:null}
+			userPieces: {
+				aircraftCarrier: {
+					direction:"hz",
+					piecesLeft: 1,
+					shipLength:4,
+					ships: [{ placed: false, health: 5,direction: "hz"}]
+				},
+				battleship: {
+					direction:"hz",
+					piecesLeft: 2,
+					shipLength:3,
+					ships:[{ placed: false, health: 4,direction: "hz"}, { placed: false, health: 4,direction: "hz"}]
+				},
+				destroyer: {
+					direction:"hz",
+					piecesLeft:2,
+					shipLength: 2,
+					ships:[{ placed: false, health: 3,direction: "hz"},  {placed: false, health: 3,direction: "hz"}]
+				},
+				submarine: {
+					direction:"hz",
+					piecesLeft:2,
+					shipLength:2,
+					ships:[{ placed: false, health: 2,direction: "hz"},  {placed: false, health: 2,direction: "hz"}]
+				},
+				patrolShip: {
+					direction:"hz",
+					piecesLeft: 2,
+					shipLength: 1,
+					ships: [{ placed: false, health: 2,direction: "hz"}, { placed: false, health: 2, direction: "hz"}]
+				}
+			},
+			selected: {piece:0,direction:0}
 		}
 	},
-
-
 
 	// PLACING PIECES
 	makePieceSelection:function(selection){
@@ -40,148 +60,112 @@ var Body = React.createClass({
 		})
 	},
 	placePiece:function(row, col){
-		if (this.state.selected.direction !== null) {
-			if (this.state.selected.direction==="vert") {
-				debugger
-				this.verticalCheck(row,col)
-			}
-			else {
-				debugger
-				this.horizontalCheck(row,col)
-			}
-		}
-	},
-	horizontalCheck:function(row, col){
-		debugger
-		var values = this.dataParser(row,col)
-		this.translateData(values, "hz")
-	},
-	checkHorizontalPath:function(values){
-		if (values.maxPosition< 10) {
-			for (var i=0; i <= values.shipLength; i++ ) {
-					if ( this.state.board.grid[values.row][values.col+i].cellType !== "empty") {
-						values.cellCheck = null
-					}
-			}
-			if (values.cellCheck !== null) {
-				values.cellCheck = 1
-				for (var i=0; i <= values.shipLength; i++ ) {
-					values.currentBoard.grid[values.row][values.col+i].cellType = "ship"
-					values.currentBoard.grid[values.row][values.col+i].shipType = values.selectedPiece
-					values.currentBoard.grid[values.row][values.col+i].shipId = this.state[values.selectedPiece + "Amount"] + 1
-				}
-			}
-		}
-		
-		return values
-	},
-	verticalCheck:function(row,col){
-		var values = this.dataParser(row,col)
-		this.translateData(values, "vert")
-	},
-	checkVerticalPath:function(values){
-		if (values.maxPosition < 10) {
-			for (var i=0; i <= values.shipLength; i++ ) {
-				if ( this.state.board.grid[values.row+i][values.col].cellType !== "empty") {
-					values.cellCheck = null
-				}
-			}
-			if (values.cellCheck !== null) {
-				values.cellCheck = 1
-				for (var i=0; i <= values.shipLength; i++ ) {
-					values.currentBoard.grid[values.row+i][values.col].cellType = "ship"
-					values.currentBoard.grid[values.row+i][values.col].shipType = values.selectedPiece
-					values.currentBoard.grid[values.row+i][values.col].shipId = this.state[values.selectedPiece + "Amount"] + 1
-				}
-			}
-		}
-		debugger
-		return values
-	},
-	dataParser:function(row,col) {
-		var shipLength
-		var cellCheck = 0
-		var currentBoard = this.state.board
 		var selectedPiece = this.state.selected.piece
-		switch (selectedPiece) {
-			case "aircraftCarrier":
-				shipLength = 4
-			break;
-
-			case "battleship":
-				shipLength = 3
-			break;
-
-			case "destroyer":
-				shipLength = 2
-			break;
-
-			case "submarine":
-				shipLength = 2
-			break;
-
-			case "patrolShip":
-				shipLength = 1
-			break;
-		}
-		return {
-			row:row,
-			col: col,
-			shipLength: shipLength,
-			cellCheck: cellCheck,
-			currentBoard: currentBoard,
-			selectedPiece:selectedPiece,
-			maxPosition: col + shipLength
+		if (this.state.userPieces[selectedPiece].piecesLeft <= 0 ||this.state.selected.piece===0) {
+			return
+		}		
+		else {
+			this.validPlacementCheck(row,col)
 		}
 	},
-	translateData:function(values, direction){
-		var newValues;
-		
-		if (direction==="hz"){
-			newValues = this.checkHorizontalPath(values)
+	validPlacementCheck:function(row, col){
+		var direction = this.state.selected.direction
+		var selectedPiece = this.state.selected.piece
+		if (direction === "hz") {
+			this.horizontalCheck(selectedPiece, row, col)
 		}
 		else {
-			newValues = this.checkVerticalPath(values)
-		}
-		
-		this.setPieceAndBoard(newValues.selectedPiece, newValues.cellCheck, newValues.currentBoard)
-	},
-	
-	setPieceAndBoard:function(selectedPiece, piecesLeft, currentBoard) {
-		switch (selectedPiece) {
-			case "aircraftCarrier":
-				this.setState({
-					"aircraftCarrierAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
-					board: currentBoard
-				});
-				break;
-			case "battleship":
-				this.setState({
-					"battleshipAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
-					board: currentBoard
-				});
-				break;
-			case "destroyer":
-				this.setState({
-					"destroyerAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
-					board: currentBoard
-				});
-				break;
-			case "submarine":
-				this.setState({
-					"submarineAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
-					board: currentBoard
-				});
-				break;
-			case "patrolShip":
-				this.setState({
-					"patrolShipAmount": this.state[selectedPiece+ "Amount"] - piecesLeft,
-					board: currentBoard
-				});
-				break;
+			this.verticalCheck(selectedPiece, row, col)
 		}
 	},
-	
+	horizontalCheck:function(selectedPiece, row, col){
+		var shipLength = this.state.userPieces[selectedPiece].shipLength
+		var userBoard = this.state.board.grid
+		var userPieces = this.state.userPieces
+		var piecesLeft = this.state.userPieces.piecesLeft
+		var valid = 1
+
+		//CHECK TO SEE IF SHIP WILL GO OFF BOARD OR IF THERE ARE ANY MORE PIECES
+		if (col + shipLength > 9 || piecesLeft <= 0) {
+			valid = 0
+		}
+		//IF POSSIBLE VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				if ( userBoard[row][col+i].cellType !== "empty"  ) {
+					valid = 0
+					console.log('invalid')
+				}
+			}
+		}
+
+		// PLACES THE PIECE
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				userBoard[row][col+i].cellType = "ship"
+				userBoard[row][col+i].shipType = selectedPiece
+				userBoard[row][col+i].shipId = (this.state[selectedPiece + "Amount"] + 1)
+			}
+				var copiedPieces = this.state.userPieces
+				copiedPieces[selectedPiece].piecesLeft -= valid
+				if (copiedPieces[selectedPiece].ships[0].placed !== true) {
+					copiedPieces[selectedPiece].ships[0].placed = true
+				}
+				else {
+					copiedPieces[selectedPiece].ships[1].placed = true
+				}
+			this.setState({
+				board: {grid: userBoard},
+				userPieces: copiedPieces
+			})
+		}
+
+	},
+	verticalCheck:function(selectedPiece, row, col){
+		var shipLength = this.state.userPieces[selectedPiece].shipLength
+		var userBoard = this.state.board.grid
+		var userPieces = this.state.userPieces
+		var piecesLeft = this.state.userPieces.piecesLeft
+		var valid = 1
+		//CHECK TO SEE IF SHIP WILL GO OFF BOARD
+		if (row + shipLength > 9 || piecesLeft <= 0) {
+			valid = 0
+		}
+		//IF POSSIBLE VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				if (userBoard[row+i][col].cellType !== "empty"  ) {
+					valid = 0
+					console.log('invalid')
+				}
+			}
+		}
+
+		// PLACES THE PIECE
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				userBoard[row+i][col].cellType = "ship"
+				userBoard[row+i][col].shipType = selectedPiece
+				userBoard[row+i][col].shipId = (this.state[selectedPiece + "Amount"] + 1)
+			}
+				var copiedPieces = this.state.userPieces
+				copiedPieces[selectedPiece].piecesLeft -= valid
+				if (copiedPieces[selectedPiece].ships[0].placed !== true) {
+					copiedPieces[selectedPiece].ships[0].placed = true
+				}
+				else {
+					copiedPieces[selectedPiece].ships[1].placed = true
+				}
+			this.setState({
+				board: {grid: userBoard},
+				userPieces: copiedPieces
+			})
+		}
+	},
+
+
+
+
 
 
 
@@ -195,41 +179,15 @@ var Body = React.createClass({
 	},
 	
 	changePieceDirection:function(selection){
-		
 		console.log(selection)
-		switch (selection.piece) {
-			case "aircraftCarrier": 
-				this.setState({
-					selected: selection,
-					aircraftCarrier: selection.direction,
-				});
-				break;
-
-			case "battleship": 
-				this.setState({
-					selected: selection,
-					battleship: selection.direction
-				});
-				break;
-			case "destroyer":
-				this.setState({
-					selected: selection,
-					destroyer: selection.direction
-				});
-				break;
-			case "submarine":
-				this.setState({
-					selected: selection,
-					submarine: selection.direction
-				});
-				break;
-			case "patrolShip":
-				this.setState({
-					selected: selection,
-					patrolShip: selection.direction
-				});
-				break;
-		}
+		var copiedPieces = this.state.userPieces
+		var totalPieces = copiedPieces[selection.piece].ships.length
+		copiedPieces[selection.piece].direction = selection.direction
+		debugger
+		this.setState({
+				selected: selection,
+				userPieces: copiedPieces
+		});
 	},
 	render:function(){
 		var toBeShown;
@@ -240,7 +198,7 @@ var Body = React.createClass({
 			toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection} handlePieceSelection={this.makePieceSelection} placePiece={this.placePiece}/>
 		}
 		return (
-			<div id="body-container" className="debugger">
+			<div id="body-container" className="">
 				{toBeShown}
 			</div>
 		)

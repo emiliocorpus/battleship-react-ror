@@ -13,7 +13,7 @@ var SubmarineVert = React.createClass({
 						<td className="ship-cell"></td>
 					</tr>
 					<tr>
-						<td className="amount">x{this.props.data.submarineAmount}</td>
+						<td className="amount">x{this.props.data.userPieces.submarine.piecesLeft}</td>
 					</tr>
 				</tbody>
 			</table>

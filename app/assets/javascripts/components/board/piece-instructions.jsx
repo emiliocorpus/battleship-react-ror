@@ -1,6 +1,6 @@
 var PieceInstructions = React.createClass({
-	receiveDirectionChange:function(piece, direction){
-		this.props.directionChange(piece, direction)
+	receiveDirectionChange:function(selection){
+		this.props.directionChange(selection)
 	},
 	manageSelection:function(selection){
 		this.props.handleSelection(selection)
@@ -19,11 +19,11 @@ var PieceInstructions = React.createClass({
 
 
 				<div className="pieces">
-					<AircraftCarrierPiece data={this.props.data} handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
-					<BattleshipPiece data={this.props.data}  handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
-					<SubmarinePiece data={this.props.data}  handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
-					<DestroyerPiece data={this.props.data}   handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
-					<PatrolShipPiece data={this.props.data} handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
+					<AircraftCarrierPiece data={this.props.data} direction={this.props.data.userPieces.aircraftCarrier.direction} handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection} />
+					<BattleshipPiece data={this.props.data} direction={this.props.data.userPieces.battleship.direction}  handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
+					<SubmarinePiece data={this.props.data} direction={this.props.data.userPieces.submarine.direction}  handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
+					<DestroyerPiece data={this.props.data} direction={this.props.data.userPieces.destroyer.direction}   handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
+					<PatrolShipPiece data={this.props.data} direction={this.props.data.userPieces.patrolShip.direction} handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
 				</div>
 			</div>
 		)
