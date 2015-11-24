@@ -11,10 +11,8 @@ var PieceInstructions = React.createClass({
 	render:function() {
 		var undoButton;
 		if (this.props.data.previousStatesPriorToStart.length > 0) {
-			undoButton = <UndoButton handleUndo={this.handleUndoMove}/>
+			undoButton = <UndoButton handleUndo={this.props.undoMove}/>
 		}
-
-
 		return (
 			<div id="instructions">
 				<h3>HOW TO PLACE SHIPS</h3>

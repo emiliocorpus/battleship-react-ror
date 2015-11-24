@@ -1,6 +1,7 @@
 var UndoButton = React.createClass({
 	handleUndoMove:function(){
 		debugger
+		event.preventDefault()
 		this.props.handleUndo()
 	},
 	render:function(){

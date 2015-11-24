@@ -9,6 +9,7 @@ var NewGame = React.createClass({
 		this.props.placePiece(row,col)
 	},
 	handleRemove:function(){
+		debugger
 		this.props.handleRemovePiece()
 	},
 	render:function() {
