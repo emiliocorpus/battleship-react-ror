@@ -38,13 +38,14 @@
 }
 
 /* -----BOARD------*/
-#board-container {
+#user-board-container, #computer-board-container {
 	width:500px;
 	margin: 0 auto;
 	display:inline-block;
 	text-align:center;
 	box-shadow:8px 8px 8px #03253F;
 }
+
 .board{
 	background-color: #58778F;
 	margin:0 auto;
@@ -108,17 +109,19 @@
 
 
 /*UNDO BUTTON*/
-.undo-button {
+.undo-button, .start-game-button {
 	display:inline-block;
 	padding:2px;
 	border:2px solid white;
-	float:right;
 	margin-right:100px;
 	background-color:#03253f;
 	color:white;
+	height:50px;
+	text-align:center;
+	vertical-align:top;
 }
 
-.undo-button:hover {
+.undo-button:hover, .start-game-button:hover {
 	text-decoration:underline;
 	box-shadow:3px 3px 3px black;
 }
