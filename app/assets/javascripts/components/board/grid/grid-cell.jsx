@@ -2,11 +2,6 @@ var GridCell = React.createClass({
 	placePiece:function(row, col) {
 		this.props.placePiece(this.props.row,this.props.col)
 	},
-	handleRemove:function(row, col) {
-
-
-
-	},
 	render:function() {
 		var display;
 		switch (this.props.cell.cellType) {

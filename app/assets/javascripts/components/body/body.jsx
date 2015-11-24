@@ -54,17 +54,8 @@ var Body = React.createClass({
 	},
 	makeClone:function(obj) {
 	    var copy;
-
 	        // Handle the 3 simple types, and null or undefined
 	        if (null == obj || "object" != typeof obj) return obj;
-
-	        // Handle Date
-	        if (obj instanceof Date) {
-	            copy = new Date();
-	            copy.setTime(obj.getTime());
-	            return copy;
-	        }
-
 	        // Handle Array
 	        if (obj instanceof Array) {
 	            copy = [];
@@ -73,7 +64,6 @@ var Body = React.createClass({
 	            }
 	            return copy;
 	        }
-
 	        // Handle Object
 	        if (obj instanceof Object) {
 	            copy = {};
@@ -87,29 +77,24 @@ var Body = React.createClass({
 	},
 	saveLastBoardState:function(lastBoard){
 		var previous = this.makeClone(this.state.previousStatesPriorToStart)
-		debugger
-		var prevPieces = this.state.userPieces
+		var prevPieces = this.makeClone(this.state.userPieces)
 		var last = {
 			prevBoard: lastBoard,
 			prevPieces: prevPieces
 		}
 		previous.push(last)
-		debugger
 		this.setState({
 			previousStatesPriorToStart: previous
 		})
-		debugger
 	},
 	undoLastMove:function(){
 		var previousStates = this.state.previousStatesPriorToStart
 		var lastState = previousStates.pop()
-		debugger
 		this.setState({
 			previousStatesPriorToStart: previousStates,
 			board: {grid: lastState.prevBoard },
 			userPieces:lastState.prevPieces
 		})
-		debugger
 	},
 	// PLACING PIECES
 	makePieceSelection:function(selection){
@@ -120,7 +105,6 @@ var Body = React.createClass({
 	},
 	placePiece:function(row, col){
 		var selectedPiece = this.state.selected.piece
-		debugger
 		if (selectedPiece===0 || this.state.userPieces[selectedPiece].piecesLeft <= 0) {
 			return
 		}		
@@ -145,7 +129,6 @@ var Body = React.createClass({
 		var userPieces = this.makeClone(this.state.userPieces)
 		var piecesLeft = this.makeClone(this.state.userPieces.piecesLeft)
 		var valid = 1
-		debugger
 		//CHECK TO SEE IF SHIP WILL GO OFF BOARD OR IF THERE ARE ANY MORE PIECES
 		if (col + shipLength > 9 || piecesLeft <= 0) {
 			valid = 0
@@ -199,7 +182,6 @@ var Body = React.createClass({
 		}
 		// PLACES THE PIECE
 		if (valid) {
-			debugger
 			this.saveLastBoardState(lastBoard)
 			for (var i=0; i <= shipLength; i++) {
 				newBoard[row][col+i].cellType = "ship"
@@ -227,7 +209,6 @@ var Body = React.createClass({
 		var userPieces = this.makeClone(this.state.userPieces)
 		var piecesLeft = this.makeClone(this.state.userPieces.piecesLeft)
 		var valid = 1
-		debugger
 		//CHECK TO SEE IF SHIP WILL GO OFF BOARD
 		if (row + shipLength > 9 || piecesLeft <= 0) {
 			valid = 0
@@ -264,7 +245,7 @@ var Body = React.createClass({
 			// LEFT SIDE CHECK
 			if (col -1 > -1) {
 				for (var i=0;i< shipLength; i++){
-					if( newBoard[row+i][col-1].cellType !== "empty") {
+					if( newBoard[row+i+1][col-1].cellType !== "empty") {
 						valid = 0
 						console.log("invalid")
 					}
@@ -275,7 +256,7 @@ var Body = React.createClass({
 			// RIGHT SIDE CHECK
 			if (col + 1 < 10) {
 				for (var i=0; i < shipLength;i++) {
-					if( newBoard[row+i][col+1].cellType !== "empty") {
+					if( newBoard[row+i+1][col+1].cellType !== "empty") {
 						valid = 0
 						console.log("invalid")
 					}

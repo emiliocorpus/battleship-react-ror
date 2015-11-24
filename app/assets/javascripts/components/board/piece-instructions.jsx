@@ -20,8 +20,9 @@ var PieceInstructions = React.createClass({
 						<li>Click a ship below and then click desired cell on board</li>
 							<ul>
 								<li>Ship will either be placed from left to right, or downwards from the clicked cell</li>
+								<li>Ships may not be placed adjacted to each other!</li>
 							</ul>
-						<li>Double click piece to rotate</li>
+						<li>Double click desired piece <em>below</em> to rotate</li>
 					</ul>
 
 

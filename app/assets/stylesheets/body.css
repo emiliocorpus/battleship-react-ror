@@ -106,11 +106,21 @@
 	border: 2px solid #03253F;
 }
 
+
+/*UNDO BUTTON*/
 .undo-button {
 	display:inline-block;
+	padding:2px;
+	border:2px solid white;
 	float:right;
 	margin-right:100px;
-	border: 1px solid red;
+	background-color:#03253f;
+	color:white;
+}
+
+.undo-button:hover {
+	text-decoration:underline;
+	box-shadow:3px 3px 3px black;
 }
 
 
