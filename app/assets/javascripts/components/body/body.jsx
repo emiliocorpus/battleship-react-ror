@@ -145,7 +145,7 @@ var Body = React.createClass({
 		if (col + shipLength > 9 || piecesLeft <= 0) {
 			valid = 0
 		}
-		//IF POSSIBLE VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE
+		//IF  VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE
 		if (valid) {
 			for (var i=0; i <= shipLength; i++) {
 				if ( newBoard[row][col+i].cellType !== "empty"  ) {
@@ -156,7 +156,7 @@ var Body = React.createClass({
 		}
 		// CHECK FOR ADJACENT PIECES AT HEAD AND TAIL OF SHIP
 		if (valid) {
-			// HEAD CHECK
+			// O CHECK
 			if (col - 1 > -1 ) { 
 				if( newBoard[row][col-1].cellType !== "empty") {
 					valid = 0
@@ -175,7 +175,7 @@ var Body = React.createClass({
 		if (valid) {
 			// TOP SIDE CHECK
 			if (row -1 > -1) {
-				for (var i=0; i < shipLength; i++) {
+				for (var i=0; i < shipLength+1; i++) {
 					if( newBoard[row-1][col+i].cellType !== "empty") {
 						valid = 0
 						console.log("invalid")
@@ -184,7 +184,7 @@ var Body = React.createClass({
 			}
 			// BOTTOM SIDE CHECK
 			if (row + 1 < 10) {
-				for (var i=0; i < shipLength; i++) {
+				for (var i=0; i < shipLength+1; i++) {
 					if( newBoard[row+1][col+i].cellType !== "empty") {
 						valid = 0
 						console.log("invalid")
@@ -256,8 +256,8 @@ var Body = React.createClass({
 		if (valid) {
 			// LEFT SIDE CHECK
 			if (col -1 > -1) {
-				for (var i=0;i< shipLength; i++){
-					if( newBoard[row+i+1][col-1].cellType !== "empty") {
+				for (var i=0;i< shipLength+1; i++){
+					if( newBoard[row+i][col-1].cellType !== "empty") {
 						valid = 0
 						console.log("invalid")
 					}
@@ -266,8 +266,8 @@ var Body = React.createClass({
 
 			// RIGHT SIDE CHECK
 			if (col + 1 < 10) {
-				for (var i=0; i < shipLength;i++) {
-					if( newBoard[row+i+1][col+1].cellType !== "empty") {
+				for (var i=0; i < shipLength+1;i++) {
+					if( newBoard[row+i][col+1].cellType !== "empty") {
 						valid = 0
 						console.log("invalid")
 					}
