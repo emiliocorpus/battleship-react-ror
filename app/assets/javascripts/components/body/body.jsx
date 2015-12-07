@@ -51,7 +51,7 @@ var Body = React.createClass({
 							direction:"hz",
 							piecesLeft:2,
 							shipLength:2,
-							ships:[{ placed: false, health: 2,direction: "hz"},  {placed: false, health: 2,direction: "hz"}]
+							ships:[{ placed: false, health: 2,direction: "hz"},  {placed: false, health: 2,direction: "hz"}]//shiplength=health?
 						},
 						patrolShip: {
 							direction:"hz",
@@ -150,7 +150,7 @@ var Body = React.createClass({
 			for (var i=0; i <= shipLength; i++) {
 				if ( newBoard[row][col+i].cellType !== "empty"  ) {
 					valid = 0
-					console.log('invalid')
+					console.log('invalid check hz1 failed')
 				}
 			}
 		}
@@ -160,14 +160,14 @@ var Body = React.createClass({
 			if (col - 1 > -1 ) { 
 				if( newBoard[row][col-1].cellType !== "empty") {
 					valid = 0
-					console.log("invalid")
+					console.log("invalid check hz2 failed")
 				}
 			}
 			// TAIL CHECK
 			if (col + shipLength + 1 < 10 ) { 
 				if( newBoard[row][col+shipLength+1].cellType !== "empty") {
 					valid = 0
-					console.log("invalid")
+					console.log("invalid check hz3 failed")
 				}
 			}
 		}
@@ -175,19 +175,19 @@ var Body = React.createClass({
 		if (valid) {
 			// TOP SIDE CHECK
 			if (row -1 > -1) {
-				for (var i=0; i < shipLength; i++) {
+				for (var i=0; i <= shipLength; i++) {
 					if( newBoard[row-1][col+i].cellType !== "empty") {
 						valid = 0
-						console.log("invalid")
+						console.log("invalid check hz4 failed")
 					}
 				}
 			}
 			// BOTTOM SIDE CHECK
 			if (row + 1 < 10) {
-				for (var i=0; i < shipLength; i++) {
+				for (var i=0; i <= shipLength; i++) {
 					if( newBoard[row+1][col+i].cellType !== "empty") {
 						valid = 0
-						console.log("invalid")
+						console.log("invalid check hz5 failed")
 					}
 				}
 			}
@@ -230,7 +230,7 @@ var Body = React.createClass({
 			for (var i=0; i <= shipLength; i++) {
 				if (newBoard[row+i][col].cellType !== "empty"  ) {
 					valid = 0
-					console.log('invalid')
+					console.log('invalid check v1 failed')
 				}
 
 			}
@@ -241,14 +241,14 @@ var Body = React.createClass({
 			if (row - 1 > -1 ) { 
 				if( newBoard[row-1][col].cellType !== "empty") {
 					valid = 0
-					console.log("invalid")
+					console.log("invalid check v2 failed")
 				}
 			}
 			// TAIL CHECK
 			if (row + shipLength + 1 < 10 ) { 
 				if( newBoard[row+shipLength+1][col].cellType !== "empty") {
 					valid = 0
-					console.log("invalid")
+					console.log("invalid check v3 failed")
 				}
 			}
 		}
@@ -256,20 +256,20 @@ var Body = React.createClass({
 		if (valid) {
 			// LEFT SIDE CHECK
 			if (col -1 > -1) {
-				for (var i=0;i< shipLength; i++){
-					if( newBoard[row+i+1][col-1].cellType !== "empty") {
+				for (var i=0;i <= shipLength; i++){
+					if( newBoard[row+i][col-1].cellType !== "empty") {
 						valid = 0
-						console.log("invalid")
+						console.log("invalid check v4 failed")
 					}
 				}
 			}
 
 			// RIGHT SIDE CHECK
 			if (col + 1 < 10) {
-				for (var i=0; i < shipLength;i++) {
-					if( newBoard[row+i+1][col+1].cellType !== "empty") {
+				for (var i=0; i <= shipLength;i++) {
+					if( newBoard[row+i][col+1].cellType !== "empty") {
 						valid = 0
-						console.log("invalid")
+						console.log("invalid check v5 failed")
 					}
 				}
 			}
