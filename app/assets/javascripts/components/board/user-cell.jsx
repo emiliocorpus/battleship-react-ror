@@ -1,7 +1,5 @@
-var GridCell = React.createClass({
-	placePiece:function(row, col) {
-		this.props.placePiece(this.props.row,this.props.col)
-	},
+var UserCell = React.createClass({
+
 	render:function() {
 		var display;
 		switch (this.props.cell.cellType) {
@@ -13,8 +11,8 @@ var GridCell = React.createClass({
 				break;
 		}
 		return (
-			<td className={display} onClick={this.placePiece} >
-				
+			<td className={display} >
+
 			</td>
 		)
 	}

@@ -27,7 +27,7 @@ var Body = React.createClass({
 									7: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									8: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
-					},
+							},
 					userPieces: {
 						aircraftCarrier: {
 							direction:"hz",
@@ -81,7 +81,8 @@ var Body = React.createClass({
 						remaining: 9
 					},
 					selected: {piece:0,direction:0},
-					previousStatesPriorToStart: []
+					previousStatesPriorToStart: [],
+					currentTurn: "user"
 		}
 	},
 	makeClone:function(obj) {
@@ -107,8 +108,6 @@ var Body = React.createClass({
 
 	        throw new Error("Unable to copy obj! Its type isn't supported.");
 	},
-
-	
 	saveLastBoardState:function(lastBoard){
 		var previous = this.makeClone(this.state.previousStatesPriorToStart)
 		var prevPieces = this.makeClone(this.state.userPieces)
@@ -130,9 +129,6 @@ var Body = React.createClass({
 			userPieces:lastState.prevPieces
 		})
 	},
-
-
-	
 	handleComputerBoardReset:function() {
 		this.setState({
 			computerBoard: {
@@ -157,39 +153,6 @@ var Body = React.createClass({
 			}
 		})
 	},
-	generateRandomBoard:function() {
-	/* 
-		STEP 1: Place longest piece 
-		STEP 2: Find valid coordinates for placement next piece and populate into an array
-		STEP 2B: Place piece using random valid coordinates
-		STEP 3: Repeat step 2 for next longest piece
-		BREAK IF THERE ARE NO VALID COORDINATES and repeate placement from beginning
-
-	*/ 	
-		var blankBoard = this.makeClone(this.state.computerBoard)
-		var pieces = [{pcsLeft:1, shipLength:4},{pcsLeft:2, shipLength:3},{pcsLeft:2, shipLength:2},{pcsLeft:2, shipLength:2},{pcsLeft:2, shipLength:1}]
-		var row = Math.floor((Math.random() * 10) + 0);
-		var col = Math.floor((Math.random() * 10) + 0);
-
-
-		while (pieces.length > 0) {
-			var direction = Math.floor((Math.random() * 2) + 0);
-				if (direction===0) {
-					direction = "hz"
-			}
-				else {
-					direction = "vert"
-			}
-		}
-
-
-
-
-
-
-	},
-
-
 	cycleNextShip:function(computerPieces) {
 		var piecesLeft = ["aircraftCarrier", "battleship", "destroyer", "submarine", "patrolShip"]
 		if (computerPieces.aircraftCarrier.piecesLeft === 0) {
@@ -214,38 +177,7 @@ var Body = React.createClass({
 		else {
 			return null
 		}
-		
 	},
-
-
-
-
-	generateRandomShipType:function() {
-		var shipType = Math.floor((Math.random() * 5) + 0)
-			switch (shipType) {
-				case 0: 
-					shipType = "aircraftCarrier"
-					break;
-				case 1:
-					shipType = "battleship"
-					break;
-				case 2:
-					shipType = "destroyer"
-					break;
-				case 3:
-					shipType = "submarine"
-					break;
-				case 4:
-					shipType = "patrolShip"
-					break;
-			}
-
-			return shipType
-	},
-
-
-
-
 	generateComputerBoard:function() {
 		var shipType;
 		var direction;
@@ -256,12 +188,9 @@ var Body = React.createClass({
 		var boardCountRestart = 100
 		while (computerPieces.remaining !== 0) {
 
-			debugger
+			
 				// GENERATE NEXT SHIP TYPE TO BE PLACED
 				shipType = this.cycleNextShip(computerPieces)
-																			// while (computerPieces[shipType].piecesLeft === 0) {
-																			// 	shipType = this.generateRandomShipType()
-																			// }
 				// GENERATE RANDOM DIRECTION
 				direction = Math.floor((Math.random() * 2) + 0);
 					if (direction===0) {
@@ -284,24 +213,24 @@ var Body = React.createClass({
 				}
 
 				if	(validPlacement !== null) {
-					debugger
+					
 					computerBoard = validPlacement.computerBoard
 					computerPieces = validPlacement.computerPieces
 					boardCountRestart = 100
-					debugger
+					
 				}
 				else {
-					debugger
+					
 					boardCountRestart -= 1
-					debugger
+					
 				}
-			debugger
+			
 			if (boardCountRestart === 0) {
-				debugger
+				
 				break
 				this.handleComputerBoardReset()
 				this.generateComputerBoard()
-				debugger
+				
 			}
 		}
 			
@@ -681,8 +610,38 @@ var Body = React.createClass({
 		});
 	},
 
-
-
+	handleFireShot:function(row,col) {
+		debugger
+		var turn = this.makeClone(this.state.currentTurn);
+		var currentHits = this.makeClone(this.state.hitCheckBoard)
+		var computerBoard = this.makeClone(this.state.computerBoard)
+		var cell = computerBoard[row][col].cellType
+		
+			switch (cell) {
+				case 'empty':
+					debugger
+					if (currentHits[row][col].cellType === "empty") {
+						debugger
+						currentHits[row][col].cellType = 'miss'
+						turn = "computer"
+					}
+					break;
+				case 'ship':
+					debugger
+					if (currentHits[row][col].cellType === "empty") {
+						debugger
+						currentHits[row][col].cellType = 'hit'
+						turn = 'computer'
+					}
+					break;
+			}
+		debugger
+		this.setState({
+			currentTurn: turn,
+			hitCheckBoard: currentHits
+		})
+		debugger
+	},
 
 	render:function(){
 		var toBeShown;
@@ -692,13 +651,14 @@ var Body = React.createClass({
 		}
 		switch (this.state.started) {
 			case null:
+				debugger
 				toBeShown = <NewGameButton startGame={this.startNewGame} />
 				break;
 			case 'placing pieces':
 				toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection} handlePieceSelection={this.makePieceSelection} placePiece={this.placePiece} handleRemovePiece={this.undoLastMove} piecesLeft={totalPiecesLeft} handleStart={this.commenceGame}/>
 				break;
 			case 'game commenced':
-				toBeShown = <CurrentGame data={this.state} />
+				toBeShown = <CurrentGame data={this.state} handleFireShot = {this.handleFireShot} />
 				break;
 		}
 		return (
