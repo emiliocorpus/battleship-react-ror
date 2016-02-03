@@ -627,61 +627,55 @@ var Body = React.createClass({
 	},
 
 	handleFireShot:function(row,col) {
-		debugger
 		var turn = this.makeClone(this.state.currentTurn);
 		var currentHits = this.makeClone(this.state.hitCheckBoard)
 		var computerBoard = this.makeClone(this.state.computerBoard)
 		var cell = computerBoard[row][col].cellType
-		
+		if (currentHits[row][col].cellType !== "empty") {
+			return
+		}
+		else {
 			switch (cell) {
 				case 'empty':
-					debugger
 					if (currentHits[row][col].cellType === "empty") {
-						debugger
 						currentHits[row][col].cellType = 'miss'
 						turn = "computer"
 					}
 					break;
 				case 'ship':
-					debugger
 					if (currentHits[row][col].cellType === "empty") {
-						debugger
 						currentHits[row][col].cellType = 'hit'
 						turn = 'computer'
 					}
 					break;
 			}
-		debugger
+		}
 		this.setState({
 			currentTurn: turn,
 			hitCheckBoard: currentHits
 		})
-		debugger
-
-
 		if (turn === "computer") {
 			this.handleComputerGuess()
 		}
 	},
 	handleComputerGuess:function(){
-		debugger
+
 		this.determineCoords()
 	},
 	determineCoords:function(){
 		var lastGuess= this.makeClone(this.state.lastComputerGuess)
 		var newGuess
+		debugger
 		if (lastGuess.hit === null) {
 			newGuess = this.generateRandomComputerGuess()
 		}
 		else {
-			debugger
 			newGuess = this.handleComputerLogic()
 		}
 		this.letComputerCheck(newGuess)
 	},
 
 	letComputerCheck:function(guess) {
-		debugger
 		var newCheck = this.makeClone(this.state.computerCheckBoard)
 		var newGuess = this.makeClone(this.state.lastComputerGuess)
 		var userBoard = this.makeClone(this.state.board.grid)
@@ -691,40 +685,46 @@ var Body = React.createClass({
 			newGuess.hit = true
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
+			debugger
 		}
 		else {
 			newCheck[guess.row][guess.col].cellType = "miss"
 			newGuess.hit = null
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
+			debugger
 		}
-		debugger
 		this.setState({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
-			lastGuess: newGuess,
+			lastComputerGuess: newGuess,
 			turn: "user"
 		})
-		debugger
 	},
 	handleComputerLogic:function() {
 		var coordinates = this.makeClone(this.state.lastComputerGuess.coords)
+		var row = coordinates.row
+		var col = coordinates.col
 		var computerCheck = this.makeClone(this.state.computerCheckBoard) 
 		var newGuess = {row: coordinates.row, col: coordinates.col}
-
-		if (coordinates.row + 1 < 10 && computerCheck[row + 1][col].cellType === "empty") {
+		debugger
+		if (row + 1 < 10 && computerCheck[row + 1][col].cellType === "empty") {
+			debugger
 			newGuess.row += 1
 			return newGuess
 		}
-		else if (coordinates.row -1 > -1 && computerCheck[row-1][col].cellType === "empty") {
+		else if (row -1 > -1 && computerCheck[row-1][col].cellType === "empty") {
+			debugger
 			newGuess.row -= 1
 			return newGuess
 		}
-		else if(coordinates.col + 1 < 10 && computerCheck[row][col+1].cellType === "empty") {
+		else if(col + 1 < 10 && computerCheck[row][col+1].cellType === "empty") {
+			debugger
 			newGuess.col += 1
 			return newGuess
 		}
-		else if (coordinates.col - 1 > -1 && computerCheck[row][col-1].cellType === "empty") {
+		else if (col - 1 > -1 && computerCheck[row][col-1].cellType === "empty") {
+			debugger
 			newGuess.col -= 1
 			return newGuess
 		}
@@ -733,7 +733,6 @@ var Body = React.createClass({
 			newGuess = this.generateRandomComputerGuess()
 			return newGuess
 		}
-		debugger
 	},
 
 
