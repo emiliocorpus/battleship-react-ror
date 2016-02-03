@@ -43,13 +43,20 @@
 	margin: 0 auto;
 	display:inline-block;
 	text-align:center;
-	box-shadow:8px 8px 8px #03253F;
+	margin-left:30px;
+	margin-right:30px;
+}
+
+.inline-block {
+	display:inline-block;
 }
 
 .board{
 	background-color: #58778F;
 	margin:0 auto;
 	color:white;
+	box-shadow:8px 8px 8px #03253F;
+
 }
 .board-cell-empty {
 	border:1px solid #03253F;

@@ -60,6 +60,26 @@ var Body = React.createClass({
 							ships: [{ placed: false, health: 2,direction: "hz"}, { placed: false, health: 2, direction: "hz"}]
 						}
 					},
+					computerBoard: {
+									0: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									1: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									2: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									3: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									4: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									5: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									6: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									7: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									8: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+									9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
+					},
+					computerPieces: { 
+						aircraftCarrier: {direction:"hz",	piecesLeft: 1, shipLength:4	},
+						battleship: { direction:"hz", piecesLeft: 2, shipLength:3	},
+						destroyer: {direction:"hz",piecesLeft:2,shipLength: 2 },
+						submarine: {direction:"hz",piecesLeft:2,shipLength:2},			
+						patrolShip: {direction:"hz",piecesLeft: 2,shipLength: 1},
+						remaining: 9
+					},
 					selected: {piece:0,direction:0},
 					previousStatesPriorToStart: []
 		}
@@ -87,6 +107,8 @@ var Body = React.createClass({
 
 	        throw new Error("Unable to copy obj! Its type isn't supported.");
 	},
+
+	
 	saveLastBoardState:function(lastBoard){
 		var previous = this.makeClone(this.state.previousStatesPriorToStart)
 		var prevPieces = this.makeClone(this.state.userPieces)
@@ -108,7 +130,344 @@ var Body = React.createClass({
 			userPieces:lastState.prevPieces
 		})
 	},
-	// PLACING PIECES
+
+
+	
+	handleComputerBoardReset:function() {
+		this.setState({
+			computerBoard: {
+				0: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				1: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				2: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				3: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				4: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				5: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				6: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				7: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				8: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
+				9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
+			},
+			computerPieces: { 
+				aircraftCarrier: {direction:"hz",	piecesLeft: 1, shipLength:4	},
+				battleship: { direction:"hz", piecesLeft: 2, shipLength:3	},
+				destroyer: {direction:"hz",piecesLeft:2,shipLength: 2 },
+				submarine: {direction:"hz",piecesLeft:2,shipLength:2},			
+				patrolShip: {direction:"hz",piecesLeft: 2,shipLength: 1},
+				remaining: 9
+			}
+		})
+	},
+	generateRandomBoard:function() {
+	/* 
+		STEP 1: Place longest piece 
+		STEP 2: Find valid coordinates for placement next piece and populate into an array
+		STEP 2B: Place piece using random valid coordinates
+		STEP 3: Repeat step 2 for next longest piece
+		BREAK IF THERE ARE NO VALID COORDINATES and repeate placement from beginning
+
+	*/ 	
+		var blankBoard = this.makeClone(this.state.computerBoard)
+		var pieces = [{pcsLeft:1, shipLength:4},{pcsLeft:2, shipLength:3},{pcsLeft:2, shipLength:2},{pcsLeft:2, shipLength:2},{pcsLeft:2, shipLength:1}]
+		var row = Math.floor((Math.random() * 10) + 0);
+		var col = Math.floor((Math.random() * 10) + 0);
+
+
+		while (pieces.length > 0) {
+			var direction = Math.floor((Math.random() * 2) + 0);
+				if (direction===0) {
+					direction = "hz"
+			}
+				else {
+					direction = "vert"
+			}
+		}
+
+
+
+
+
+
+	},
+
+
+	cycleNextShip:function(computerPieces) {
+		var piecesLeft = ["aircraftCarrier", "battleship", "destroyer", "submarine", "patrolShip"]
+		if (computerPieces.aircraftCarrier.piecesLeft === 0) {
+			piecesLeft.shift()
+		}
+		if (computerPieces.battleship.piecesLeft === 0) {
+			piecesLeft.shift()
+		}
+		if (computerPieces.destroyer.piecesLeft === 0) {
+			piecesLeft.shift()
+		}
+		if (computerPieces.submarine.piecesLeft === 0) {
+			piecesLeft.shift()
+		}
+		if (computerPieces.patrolShip.piecesLeft === 0) {
+			piecesLeft.shift()
+		}
+
+		if (piecesLeft.length > 0) {
+			return piecesLeft[0]
+		}
+		else {
+			return null
+		}
+		
+	},
+
+
+
+
+	generateRandomShipType:function() {
+		var shipType = Math.floor((Math.random() * 5) + 0)
+			switch (shipType) {
+				case 0: 
+					shipType = "aircraftCarrier"
+					break;
+				case 1:
+					shipType = "battleship"
+					break;
+				case 2:
+					shipType = "destroyer"
+					break;
+				case 3:
+					shipType = "submarine"
+					break;
+				case 4:
+					shipType = "patrolShip"
+					break;
+			}
+
+			return shipType
+	},
+
+
+
+
+	generateComputerBoard:function() {
+		var shipType;
+		var direction;
+		var row;
+		var col;
+		var computerBoard = this.makeClone(this.state.computerBoard);
+		var computerPieces = this.makeClone(this.state.computerPieces);
+		var boardCountRestart = 100
+		while (computerPieces.remaining !== 0) {
+
+			debugger
+				// GENERATE NEXT SHIP TYPE TO BE PLACED
+				shipType = this.cycleNextShip(computerPieces)
+																			// while (computerPieces[shipType].piecesLeft === 0) {
+																			// 	shipType = this.generateRandomShipType()
+																			// }
+				// GENERATE RANDOM DIRECTION
+				direction = Math.floor((Math.random() * 2) + 0);
+					if (direction===0) {
+						direction = "hz"
+					}
+					else {
+						direction = "vert"
+					}
+				// GENERATE RANDOM GRID COORDINATES
+				row = Math.floor((Math.random() * 10) + 0);
+				col = Math.floor((Math.random() * 10) + 0);
+
+				var validPlacement;
+				if (direction === "hz") {
+					validPlacement = this.computerHorizontalCheck(computerBoard, computerPieces, shipType, row, col)
+				}
+				else {
+					validPlacement = this.computerVerticalCheck(computerBoard, computerPieces, shipType, row, col)
+
+				}
+
+				if	(validPlacement !== null) {
+					debugger
+					computerBoard = validPlacement.computerBoard
+					computerPieces = validPlacement.computerPieces
+					boardCountRestart = 100
+					debugger
+				}
+				else {
+					debugger
+					boardCountRestart -= 1
+					debugger
+				}
+			debugger
+			if (boardCountRestart === 0) {
+				debugger
+				break
+				this.handleComputerBoardReset()
+				this.generateComputerBoard()
+				debugger
+			}
+		}
+			
+		if (computerPieces.remaining === 0 ) {
+			this.setState({
+				computerPieces: computerPieces,
+				computerBoard: computerBoard
+			})
+		}
+	},
+	computerHorizontalCheck:function(oldBoard, computerPieces, selectedPiece, row, col){
+		var shipLength = this.state.computerPieces[selectedPiece].shipLength
+		var piecesLeft = computerPieces.remaining
+		var valid = 1
+		var newBoard = oldBoard
+		//CHECK TO SEE IF SHIP WILL GO OFF BOARD OR IF THERE ARE ANY MORE PIECES
+		if (col + shipLength > 9 || piecesLeft <= 0) {
+			valid = 0
+		}
+		//IF  VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				if ( oldBoard[row][col+i].cellType !== "empty"  ) {
+					valid = 0
+					console.log('invalid')
+				}
+			}
+		}
+		// CHECK FOR ADJACENT PIECES AT HEAD AND TAIL OF SHIP
+		if (valid) {
+			// O CHECK
+			if (col - 1 > -1 ) { 
+				if( oldBoard[row][col-1].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+			// TAIL CHECK
+			if (col + shipLength + 1 < 10 ) { 
+				if( oldBoard[row][col+shipLength+1].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+		}
+		// CHECK FOR ADJACENT PIECES ON SIDES OF SHIP
+		if (valid) {
+			// TOP SIDE CHECK
+			if (row -1 > -1) {
+				for (var i=0; i < shipLength+1; i++) {
+					if( oldBoard[row-1][col+i].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
+				}
+			}
+			// BOTTOM SIDE CHECK
+			if (row + 1 < 10) {
+				for (var i=0; i < shipLength+1; i++) {
+					if( oldBoard[row+1][col+i].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
+				}
+			}
+		}
+		// PLACES THE PIECE
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				newBoard[row][col+i].cellType = "ship"
+				newBoard[row][col+i].shipType = selectedPiece
+			}
+				var copiedPieces = computerPieces
+				copiedPieces[selectedPiece].piecesLeft -= 1
+				copiedPieces.remaining -= 1
+			var updatedBoardAndPieces = {computerBoard: newBoard, computerPieces: copiedPieces}
+			return updatedBoardAndPieces
+		}
+		else {
+			return null
+		}
+	},
+	computerVerticalCheck:function(oldBoard, computerPieces, selectedPiece, row, col){
+		var shipLength = this.state.computerPieces[selectedPiece].shipLength
+		var piecesLeft = computerPieces.remaining
+		var valid = 1
+		var newBoard = oldBoard
+		//CHECK TO SEE IF SHIP WILL GO OFF BOARD
+		if (row + shipLength > 9 || piecesLeft <= 0) {
+			valid = 0
+		}
+		//IF POSSIBLE VALID PLACE, CHECK EACH CELL IN DIRECTION OF PIECE LAYOUT
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				if (oldBoard[row+i][col].cellType !== "empty"  ) {
+					valid = 0
+					console.log('invalid')
+				}
+
+			}
+		}
+		// CHECK FOR ADJACENT PIECES AT HEAD AND TAIL OF SHIP
+		if (valid) {
+			// HEAD CHECK
+			if (row - 1 > -1 ) { 
+				if( oldBoard[row-1][col].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+			// TAIL CHECK
+			if (row + shipLength + 1 < 10 ) { 
+				if( oldBoard[row+shipLength+1][col].cellType !== "empty") {
+					valid = 0
+					console.log("invalid")
+				}
+			}
+		}
+		// CHECK FOR ADJACENT PIECES ON SIDES OF SHIP
+		if (valid) {
+			// LEFT SIDE CHECK
+			if (col -1 > -1) {
+				for (var i=0;i< shipLength+1; i++){
+					if( oldBoard[row+i][col-1].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
+				}
+			}
+
+			// RIGHT SIDE CHECK
+			if (col + 1 < 10) {
+				for (var i=0; i < shipLength+1;i++) {
+					if( oldBoard[row+i][col+1].cellType !== "empty") {
+						valid = 0
+						console.log("invalid")
+					}
+				}
+			}
+		}
+		// PLACES THE PIECE
+		if (valid) {
+			for (var i=0; i <= shipLength; i++) {
+				newBoard[row+i][col].cellType = "ship"
+				newBoard[row+i][col].shipType = selectedPiece
+			}
+			var copiedPieces = computerPieces
+			copiedPieces[selectedPiece].piecesLeft -= 1
+			copiedPieces.remaining -= 1
+			var updatedBoardAndPieces = {computerBoard: newBoard, computerPieces: copiedPieces}
+			return updatedBoardAndPieces
+		}
+		else {
+			return null
+		}
+	},
+
+
+
+
+
+
+
+
+
+	// PLACING USER PIECES
 	makePieceSelection:function(selection){
 		console.log(selection)
 		this.setState({
@@ -296,12 +655,18 @@ var Body = React.createClass({
 			})
 		}
 	},
+
+
+
+
+
 	startNewGame:function() {
 		this.setState({
 			started: 'placing pieces',
 		})
 	},
 	commenceGame:function(){
+		this.generateComputerBoard()
 		this.setState({
 			started: 'game commenced'
 		})
@@ -315,6 +680,10 @@ var Body = React.createClass({
 				userPieces: copiedPieces
 		});
 	},
+
+
+
+
 	render:function(){
 		var toBeShown;
 		var totalPiecesLeft = this.state.userPieces.aircraftCarrier.piecesLeft + this.state.userPieces.destroyer.piecesLeft + this.state.userPieces.battleship.piecesLeft + this.state.userPieces.patrolShip.piecesLeft + this.state.userPieces.submarine.piecesLeft
