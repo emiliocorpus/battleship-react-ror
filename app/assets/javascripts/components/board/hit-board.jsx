@@ -1,6 +1,5 @@
 var HitBoard = React.createClass({
 	fireShot:function(row, col){
-		debugger
 		this.props.handleFiredShot(row, col)
 	},
 	render:function(){

@@ -1,6 +1,5 @@
 var CurrentGame = React.createClass({
 	handleFiredShot: function(row, col){
-		debugger
 		this.props.handleFireShot(row, col)
 	},
 

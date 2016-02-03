@@ -4,16 +4,16 @@ var Body = React.createClass({
 					started:null,
 					board: { 
 							grid: {
-									0: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									1: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									2: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									3: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									4: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									5: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									6: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									7: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									8: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
-									9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
+									0: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									1: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									2: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									3: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									4: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									5: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									6: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									7: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									8: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
+									9: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}]
 							}
 					},
 					hitCheckBoard: {
@@ -60,6 +60,14 @@ var Body = React.createClass({
 							ships: [{ placed: false, health: 2,direction: "hz"}, { placed: false, health: 2, direction: "hz"}]
 						}
 					},
+					computerPieces: { 
+						aircraftCarrier: {direction:"hz",	piecesLeft: 1, shipLength:4	},
+						battleship: { direction:"hz", piecesLeft: 2, shipLength:3	},
+						destroyer: {direction:"hz",piecesLeft:2,shipLength: 2 },
+						submarine: {direction:"hz",piecesLeft:2,shipLength:2},			
+						patrolShip: {direction:"hz",piecesLeft: 2,shipLength: 1},
+						remaining: 9
+					},
 					computerBoard: {
 									0: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									1: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
@@ -72,13 +80,21 @@ var Body = React.createClass({
 									8: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
 					},
-					computerPieces: { 
-						aircraftCarrier: {direction:"hz",	piecesLeft: 1, shipLength:4	},
-						battleship: { direction:"hz", piecesLeft: 2, shipLength:3	},
-						destroyer: {direction:"hz",piecesLeft:2,shipLength: 2 },
-						submarine: {direction:"hz",piecesLeft:2,shipLength:2},			
-						patrolShip: {direction:"hz",piecesLeft: 2,shipLength: 1},
-						remaining: 9
+					computerCheckBoard: {
+									0: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									1: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									2: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									3: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									4: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									5: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									6: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									7: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									8: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
+									9: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}]
+					},
+					lastComputerGuess: {
+						hit: null,
+						coords: {row: null, col: null}
 					},
 					selected: {piece:0,direction:0},
 					previousStatesPriorToStart: [],
@@ -641,7 +657,100 @@ var Body = React.createClass({
 			hitCheckBoard: currentHits
 		})
 		debugger
+
+
+		if (turn === "computer") {
+			this.handleComputerGuess()
+		}
 	},
+	handleComputerGuess:function(){
+		debugger
+		this.determineCoords()
+	},
+	determineCoords:function(){
+		var lastGuess= this.makeClone(this.state.lastComputerGuess)
+		var newGuess
+		if (lastGuess.hit === null) {
+			newGuess = this.generateRandomComputerGuess()
+		}
+		else {
+			debugger
+			newGuess = this.handleComputerLogic()
+		}
+		this.letComputerCheck(newGuess)
+	},
+
+	letComputerCheck:function(guess) {
+		debugger
+		var newCheck = this.makeClone(this.state.computerCheckBoard)
+		var newGuess = this.makeClone(this.state.lastComputerGuess)
+		var userBoard = this.makeClone(this.state.board.grid)
+		debugger
+		if (userBoard[guess.row][guess.col].cellType === "ship") {
+			newCheck[guess.row][guess.col].cellType = "hit"
+			newGuess.hit = true
+			newGuess.coords = {row: guess.row, col: guess.col}
+			userBoard[guess.row][guess.col].hitStatus = true
+		}
+		else {
+			newCheck[guess.row][guess.col].cellType = "miss"
+			newGuess.hit = null
+			newGuess.coords = {row: guess.row, col: guess.col}
+			userBoard[guess.row][guess.col].hitStatus = true
+		}
+		debugger
+		this.setState({
+			computerCheckBoard: newCheck,
+			board: {grid: userBoard},
+			lastGuess: newGuess,
+			turn: "user"
+		})
+		debugger
+	},
+	handleComputerLogic:function() {
+		var coordinates = this.makeClone(this.state.lastComputerGuess.coords)
+		var computerCheck = this.makeClone(this.state.computerCheckBoard) 
+		var newGuess = {row: coordinates.row, col: coordinates.col}
+
+		if (coordinates.row + 1 < 10 && computerCheck[row + 1][col].cellType === "empty") {
+			newGuess.row += 1
+			return newGuess
+		}
+		else if (coordinates.row -1 > -1 && computerCheck[row-1][col].cellType === "empty") {
+			newGuess.row -= 1
+			return newGuess
+		}
+		else if(coordinates.col + 1 < 10 && computerCheck[row][col+1].cellType === "empty") {
+			newGuess.col += 1
+			return newGuess
+		}
+		else if (coordinates.col - 1 > -1 && computerCheck[row][col-1].cellType === "empty") {
+			newGuess.col -= 1
+			return newGuess
+		}
+		
+		else {
+			newGuess = this.generateRandomComputerGuess()
+			return newGuess
+		}
+		debugger
+	},
+
+
+	generateRandomComputerGuess:function() {
+		var row =  Math.floor((Math.random() * 10) + 0)
+		var col =  Math.floor((Math.random() * 10) + 0)		
+		var computerCheck = this.makeClone(this.state.computerCheckBoard) 
+		
+		if (computerCheck[row][col].cellType === "empty") {
+			return {row: row, col: col}
+		}
+		else {
+			this.generateRandomComputerGuess()
+		}
+	},
+
+
 
 	render:function(){
 		var toBeShown;
@@ -651,7 +760,6 @@ var Body = React.createClass({
 		}
 		switch (this.state.started) {
 			case null:
-				debugger
 				toBeShown = <NewGameButton startGame={this.startNewGame} />
 				break;
 			case 'placing pieces':
