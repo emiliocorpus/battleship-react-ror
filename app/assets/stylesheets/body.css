@@ -138,11 +138,12 @@
 
 
 /*UNDO BUTTON, START-GAME BUTTON*/
-.undo-button, .start-game-button, .random-board-button {
+/*.undo-button, .start-game-button, .random-board-button {
 	display:inline-block;
+	margin-top:15%;
+	border-radius:25px;
 	padding:2px;
 	border:2px solid white;
-	margin-right:100px;
 	background-color:#03253f;
 	color:white;
 	height:50px;
@@ -151,7 +152,92 @@
 }
 
 .undo-button:hover, .start-game-button:hover, .random-board-button:hover{
-	text-decoration:underline;
+	box-shadow: 6px 5px 6px black;
+}
+
+.button-links {
+	text-decoration:none;
+	width: 100%;
+    height: 100%;
+}*/
+
+
+.random-board-button {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.random-board-button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+
+.start-game-button {
+  background: #49e622;
+  background-image: -webkit-linear-gradient(top, #49e622, #527843);
+  background-image: -moz-linear-gradient(top, #49e622, #527843);
+  background-image: -ms-linear-gradient(top, #49e622, #527843);
+  background-image: -o-linear-gradient(top, #49e622, #527843);
+  background-image: linear-gradient(to bottom, #49e622, #527843);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.start-game-button:hover {
+  text-decoration: none;
+  background-color:#7de374;
+}
+
+
+.undo-button {
+  background: #ff4f4f;
+  background-image: -webkit-linear-gradient(top, #ff4f4f, #cf235c);
+  background-image: -moz-linear-gradient(top, #ff4f4f, #cf235c);
+  background-image: -ms-linear-gradient(top, #ff4f4f, #cf235c);
+  background-image: -o-linear-gradient(top, #ff4f4f, #cf235c);
+  background-image: linear-gradient(to bottom, #ff4f4f, #cf235c);
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.undo-button:hover {
+  text-decoration: none;
+  background-color:#e66868;
+}
+
+
+.btn {
+	margin-right: 50px;
 }
 
 
@@ -162,12 +248,12 @@
 	background-color: white;
 	opacity:.4;
 	color:green;
-	font-size:40px;
+	font-size:25px;
 	margin: 0 auto;
 	height:100px;
-	padding:100px;
-	position: absolute;
-    z-index: 5;
+	width:300px;
+	line-height:80px;
+	margin-bottom:20px;
 }
 
 

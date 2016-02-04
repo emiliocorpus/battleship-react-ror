@@ -5,10 +5,8 @@ var UndoButton = React.createClass({
 	},
 	render:function(){
 		return(
-			<a href="#undo" onClick={this.handleUndoMove}>
-				<div className="debugger undo-button" >
-					<h4>UNDO </h4>
-				</div>
+			<a href="#undo" className="btn undo-button" onClick={this.handleUndoMove}>
+					Undo
 			</a>
 		)
 	}

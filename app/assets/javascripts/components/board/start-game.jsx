@@ -5,10 +5,8 @@ var StartGame = React.createClass({
 	},
 	render:function(){
 		return (
-			<a href="#start-game" onClick={this.startGame}>
-				<div className="start-game-button">
-					START
-				</div>
+			<a href="#start-game" className="btn start-game-button" onClick={this.startGame}>
+					Start
 			</a>
 		)
 	}

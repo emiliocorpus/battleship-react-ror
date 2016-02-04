@@ -7,10 +7,10 @@ var RandomBoardButton = React.createClass({
 
 	render:function() {
 		return (
-			<a href="#random-board-button" onClick={this.generateRandomBoard}>
-				<div className="debugger random-board-button" >
-					<h4>RANDOM</h4>
-				</div>
+			<a href="#randomize" className="btn random-board-button" onClick={this.generateRandomBoard}>
+				
+				Randomize
+				
 			</a>
 
 		)
