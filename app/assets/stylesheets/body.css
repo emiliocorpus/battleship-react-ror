@@ -37,6 +37,8 @@
 	box-shadow: 6px 5px 6px black;
 }
 
+
+
 /* -----BOARD------*/
 #user-board-container, #computer-board-container {
 	width:500px;
@@ -135,8 +137,8 @@
 }
 
 
-/*UNDO BUTTON*/
-.undo-button, .start-game-button {
+/*UNDO BUTTON, START-GAME BUTTON*/
+.undo-button, .start-game-button, .random-board-button {
 	display:inline-block;
 	padding:2px;
 	border:2px solid white;
@@ -148,12 +150,24 @@
 	vertical-align:top;
 }
 
-.undo-button:hover, .start-game-button:hover {
+.undo-button:hover, .start-game-button:hover, .random-board-button:hover{
 	text-decoration:underline;
-	box-shadow:3px 3px 3px black;
 }
 
 
+/* TEXT BOX */
 
+
+.text-box {
+	background-color: white;
+	opacity:.4;
+	color:green;
+	font-size:40px;
+	margin: 0 auto;
+	height:100px;
+	padding:100px;
+	position: absolute;
+    z-index: 5;
+}
 
 

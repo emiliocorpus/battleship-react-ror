@@ -5,14 +5,23 @@ var PieceInstructions = React.createClass({
 	manageSelection:function(selection){
 		this.props.handleSelection(selection)
 	},
+	generateRandomBoard:function(){
+		this.props.generateRandomBoard()
+	},
+
 	render:function() {
 		var undoButton;
 		var startGameButton;
+		var randomBoard;
 		if (this.props.data.previousStatesPriorToStart.length > 0) {
 			undoButton = <UndoButton handleUndo={this.props.undoMove}/>
 		}
 		if (this.props.piecesLeft === 0) {
 			startGameButton = <StartGame startGame={this.props.startGame} />
+		}
+
+		if (this.props.data.started === "placing pieces") {
+			randomBoard = <RandomBoardButton generateRandomBoard={this.props.generateRandomBoard}/>
 		}
 
 		if (this.props.data)
@@ -36,6 +45,7 @@ var PieceInstructions = React.createClass({
 					<DestroyerPiece data={this.props.data} direction={this.props.data.userPieces.destroyer.direction}   handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
 					<PatrolShipPiece data={this.props.data} direction={this.props.data.userPieces.patrolShip.direction} handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
 				</div>
+				{randomBoard}
 				{startGameButton}
 				{undoButton}
 			</div>
