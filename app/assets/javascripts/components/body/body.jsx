@@ -26,7 +26,7 @@ var Body = React.createClass({
 						patrolShip: {direction:"hz",piecesLeft: 2,shipLength: 1},
 						remaining: 9
 					},
-					rowLayout: {
+					colLayout: {
 						0: 'A',
 						1: 'B',
 						2: 'C',
@@ -768,7 +768,7 @@ var Body = React.createClass({
 			userBoard[guess.row][guess.col].hitStatus = true
 			
 		}
-		this.translateCoordinates(guess.row, guess.col, hitStatus)
+		// this.translateCoordinates(guess.row, guess.col, hitStatus)
 		this.setState({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
@@ -778,9 +778,9 @@ var Body = React.createClass({
 	},
 
 	translateCoordinates:function(row, col, hitStatus) {
-		var newRow = this.state.rowLayout[row]
-		var newCol =  col.toString()
-		var newCoords = newRow + newCol
+		var newCol = this.state.colLayout[col]
+		var newRow =  (row + 1).toString()
+		var newCoords = newCol + newRow
 		this.setState({
 			lastShotFired: {
 				coordinates:newCoords,
