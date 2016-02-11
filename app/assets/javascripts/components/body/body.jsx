@@ -26,6 +26,24 @@ var Body = React.createClass({
 						patrolShip: {direction:"hz",piecesLeft: 2,shipLength: 1},
 						remaining: 9
 					},
+					rowLayout: {
+						0: 'A',
+						1: 'B',
+						2: 'C',
+						3: 'D',
+						4: 'E',
+						5: 'F',
+						6: 'G',
+						7: 'H',
+						8: 'I',
+						9: 'J'
+					},
+					lastShotFired: {
+						coordinates: null,
+						targetStatus: null
+					},
+					timeouts: null,
+
 					blankBoard: {
 									0: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									1: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
@@ -660,17 +678,22 @@ var Body = React.createClass({
 		}
 	},
 
-
+	clearAllTimeouts:function(timeouts){
+		var timeouts = this.makeClone(this.state.timeouts)
+		clearTimeout(timeouts)
+	},
 
 
 
 
 	// USER GUESS
 	handleFireShot:function(row,col) {
+		this.clearAllTimeouts()
 		var turn = this.makeClone(this.state.currentTurn);
 		var currentHits = this.makeClone(this.state.hitCheckBoard)
 		var computerBoard = this.makeClone(this.state.computerBoard)
 		var cell = computerBoard[row][col].cellType
+		var hitStatus
 		if (currentHits[row][col].cellType !== "empty") {
 			return
 		}
@@ -679,24 +702,31 @@ var Body = React.createClass({
 				case 'empty':
 					if (currentHits[row][col].cellType === "empty") {
 						currentHits[row][col].cellType = 'miss'
+						hitStatus = 'miss'
 						turn = "computer"
+
 					}
 					break;
 				case 'ship':
 					if (currentHits[row][col].cellType === "empty") {
 						currentHits[row][col].cellType = 'hit'
+						hitStatus = 'hit'
 						turn = 'computer'
 					}
 					break;
 			}
 		}
 		debugger
+		this.translateCoordinates(row, col, hitStatus)
 		this.setState({
 			currentTurn: turn,
 			hitCheckBoard: currentHits
 		})
 		if (turn === "computer") {
-			this.handleComputerGuess()
+			var timeout = setTimeout(this.handleComputerGuess(), 10000)
+			this.setState({
+				timeouts: timeout
+			})
 		}
 	},
 
@@ -720,9 +750,11 @@ var Body = React.createClass({
 		var newCheck = this.makeClone(this.state.computerCheckBoard)
 		var newGuess = this.makeClone(this.state.lastComputerGuess)
 		var userBoard = this.makeClone(this.state.board.grid)
+		var hitStatus
 		
 		if (userBoard[guess.row][guess.col].cellType === "ship") {
 			newCheck[guess.row][guess.col].cellType = "hit"
+			hitStatus = "hit"
 			newGuess.hit = true
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
@@ -730,16 +762,30 @@ var Body = React.createClass({
 		}
 		else {
 			newCheck[guess.row][guess.col].cellType = "miss"
+			hitStates = "miss"
 			newGuess.hit = null
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
 			
 		}
+		this.translateCoordinates(guess.row, guess.col, hitStatus)
 		this.setState({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
 			lastComputerGuess: newGuess,
 			turn: "user"
+		})
+	},
+
+	translateCoordinates:function(row, col, hitStatus) {
+		var newRow = this.state.rowLayout[row]
+		var newCol =  col.toString()
+		var newCoords = newRow + newCol
+		this.setState({
+			lastShotFired: {
+				coordinates:newCoords,
+				targetStatus: hitStatus
+			}
 		})
 	},
 	handleComputerLogic:function() {
