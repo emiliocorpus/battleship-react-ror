@@ -684,8 +684,6 @@ var Body = React.createClass({
 	},
 
 
-
-
 	// USER GUESS
 	handleFireShot:function(row,col) {
 		this.clearAllTimeouts()
@@ -716,14 +714,13 @@ var Body = React.createClass({
 					break;
 			}
 		}
-		debugger
 		this.translateCoordinates(row, col, hitStatus)
 		this.setState({
 			currentTurn: turn,
 			hitCheckBoard: currentHits
 		})
 		if (turn === "computer") {
-			var timeout = setTimeout(this.handleComputerGuess(), 10000)
+			var timeout = setTimeout(this.handleComputerGuess, 3000)
 			this.setState({
 				timeouts: timeout
 			})
@@ -762,13 +759,13 @@ var Body = React.createClass({
 		}
 		else {
 			newCheck[guess.row][guess.col].cellType = "miss"
-			hitStates = "miss"
+			hitStatus = "miss"
 			newGuess.hit = null
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
 			
 		}
-		// this.translateCoordinates(guess.row, guess.col, hitStatus)
+		this.translateCoordinates(guess.row, guess.col, hitStatus)
 		this.setState({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
@@ -780,7 +777,7 @@ var Body = React.createClass({
 	translateCoordinates:function(row, col, hitStatus) {
 		var newCol = this.state.colLayout[col]
 		var newRow =  (row + 1).toString()
-		var newCoords = newCol + newRow
+		var newCoords = newCol + "-" + newRow
 		this.setState({
 			lastShotFired: {
 				coordinates:newCoords,

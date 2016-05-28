@@ -21,7 +21,7 @@ var NewGame = React.createClass({
 		return (
 			<div id="new-game-set-up">
 				<PieceInstructions data={this.props.data} directionChange={this.receiveDirectionChange} handleSelection={this.receiveSelection} undoMove={this.handleRemove} startGame={this.handleStart} piecesLeft={this.props.piecesLeft} generateRandomBoard={this.generateRandomBoard}/>
-				<Board idType="user-board-container" handlePieceSelection={this.props.handlePieceSelection} board={this.props.data.board.grid} selected={this.props.data.selected} placePiece={this.placePiece}/>
+				<Board idType="user-board-container" className="board-placement-landscape-check debugger" handlePieceSelection={this.props.handlePieceSelection} board={this.props.data.board.grid} selected={this.props.data.selected} placePiece={this.placePiece}/>
 			</div>
 		)
 	}

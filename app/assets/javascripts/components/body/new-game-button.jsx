@@ -5,9 +5,9 @@ var NewGameButton = React.createClass({
 	},
 	render:function(){
 		return (
-			<a href="#" id="new-game-link" onClick={this.handleClick}>
-				<div id="new-game-button">
-					PLAY NEW GAME?
+			<a href="#" id="new-game-link" >
+				<div id="new-game-button" onClick={this.handleClick}>
+					start new game
 				</div>
 			</a>
 		)

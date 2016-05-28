@@ -5,18 +5,20 @@ var TextBox = React.createClass({
 		var targetStatus = this.props.data.lastShotFired.targetStatus
 		if (targetStatus !== null) {
 			if (targetStatus === "hit") {
-				display = coordinates + " is a direct hit!"
+				var directt = <span><span className="coordinates">{coordinates}</span> is a <span className="green-font">direct</span> hit!</span>
+				display = directt
 			}
 			else {
-				display = coordinates + "... is a miss sir..."
+				var misss = <span><span className="coordinates">{coordinates}</span> is a <span className="red-font">miss</span>...</span>
+				display = misss
 			}
 		}
 		else {
 			display = ""
 		}
 		return (
-			<div className="text-box debugger">
-				{display}
+			<div className="text-box">
+				{display} 
 			</div>
 		)
 	}

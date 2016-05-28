@@ -1,5 +1,5 @@
 #page-container {
-	min-width:1100px;
+	zoom: 90%;
 }
 #body-container {
 	padding: 2%;
@@ -15,16 +15,15 @@
 	margin: 0 auto;
 	margin-top:15%;
 	border-radius:25px;
-	padding: 20px;
-	width:400px;
-	font-size:3em;
+	font-size:12px;
 	box-shadow: 4px 3px 4px black;
 	text-align:center;
+	width:300px;
+	padding:5px;
 }
 #new-game-link {
 	text-decoration:none;
-	width: 100%;
-    height: 100%;
+	
 }
 #new-game-link:hover{
 	border:none;
@@ -33,7 +32,7 @@
   	color:inherit;
 }
 #new-game-button:hover{
-	width:405px;
+	width:325px;
 	box-shadow: 6px 5px 6px black;
 }
 
@@ -92,7 +91,20 @@
 }
 
 
+/*BOARD LABEL*/
 
+
+.board-label {
+	font-variant:small-caps;
+}
+
+.your-board {
+	color:#02DE04;
+}
+
+.computer-board {
+	color:#D30003;
+}
 
 
 /* NEW GAME SET UP, INSTRUCTIONS AND INITIAL PIECES */
@@ -243,17 +255,82 @@
 
 /* TEXT BOX */
 
+.red-font {
+	color: red;
+}
 
+.coordinates {
+	font-weight:bolder;
+	
+}
+
+.green-font {
+	color:green;
+}
 .text-box {
 	background-color: white;
+	border:1px solid blue;
 	opacity:.4;
-	color:green;
+	color:#343434;
 	font-size:25px;
 	margin: 0 auto;
-	height:100px;
-	width:300px;
 	line-height:80px;
 	margin-bottom:20px;
 }
 
+#rotate-to-landscape {
+	display:none;
+}
+
+@media only screen and (max-width : 320px) {
+/* Styles */
+	#rotate-to-landscape {
+	display:inline;
+	}
+	.instruction-content, .pieces, .random-board-button, .board-placement-landscape-check, .board {
+	display: none;
+	}
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (orientation : portrait) {
+/* Styles */
+	#rotate-to-landscape {
+	display:inline;
+	}
+	.instruction-content, .pieces, .random-board-button, .board-placement-landscape-check, .instruction-content {
+	display: none;
+	}
+}
+
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) { .instruction-content, .pieces {
+	display: none;}
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) 
+and (orientation : landscape) { .instruction-content, .pieces {
+	display: none;
+}}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) {.instruction-content, .pieces {
+display: none;
+}}
+
+/* iPhone 6 in portrait */
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) {#rotate-to-landscape {
+	display:inline;
+	.instruction-content, .pieces, .random-board-button, .board-placement-landscape-check, .instruction-content {
+	display: none;
+	}
+	}}
 

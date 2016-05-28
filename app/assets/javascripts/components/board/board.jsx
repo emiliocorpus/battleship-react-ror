@@ -6,7 +6,7 @@ var Board = React.createClass({
 	},
 	render:function(){
 		return (
-			<div id={this.props.idType}>
+			<div id={this.props.idType} className="board">
 				<table className="board" cellPadding="0" cellSpacing="0">
 					<thead>
 						<tr>

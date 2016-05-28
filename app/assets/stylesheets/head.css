@@ -4,15 +4,15 @@
 	background-color:#03253F;
 	margin: 0 auto;
 	line-height: 100px;
-	padding-left: 10%;
+	text-align:center;
 }
 
 #battleship{
 	color: #FFF;
-	font-size: 3em;
+	font-size:20px;
 }
 
 #description{
-	font-size: 1.0em;
-	color: #738A9C;
+	color: #ACFF8F;
+	font-size:15px;
 }

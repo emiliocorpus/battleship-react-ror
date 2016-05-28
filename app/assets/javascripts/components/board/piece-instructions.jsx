@@ -27,6 +27,8 @@ var PieceInstructions = React.createClass({
 		if (this.props.data)
 		return (
 			<div id="instructions">
+				<div id="rotate-to-landscape">Please rotate to landscape view  and refresh page for better functionality</div>
+				<div className="instruction-content inline-block">
 				<h3>HOW TO PLACE SHIPS</h3>
 					<ul>
 						<li>Click a ship below and then click desired cell on board</li>
@@ -36,9 +38,9 @@ var PieceInstructions = React.createClass({
 							</ul>
 						<li>Double click desired piece <em>below</em> to rotate</li>
 					</ul>
+				</div>
 
-
-				<div className="pieces">
+				<div className="pieces inline-block">
 					<AircraftCarrierPiece data={this.props.data} direction={this.props.data.userPieces.aircraftCarrier.direction} handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection} />
 					<BattleshipPiece data={this.props.data} direction={this.props.data.userPieces.battleship.direction}  handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
 					<SubmarinePiece data={this.props.data} direction={this.props.data.userPieces.submarine.direction}  handleDirectionChange={this.receiveDirectionChange} sendSelection={this.manageSelection}/>
