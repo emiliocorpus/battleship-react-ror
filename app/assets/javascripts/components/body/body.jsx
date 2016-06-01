@@ -502,6 +502,7 @@ var Body = React.createClass({
 			}
 		})
 	},
+
 	cycleNextShip:function(computerPieces) {
 		var piecesLeft = ["aircraftCarrier", "battleship", "destroyer", "submarine", "patrolShip"]
 		if (computerPieces.aircraftCarrier.piecesLeft === 0) {
@@ -686,45 +687,48 @@ var Body = React.createClass({
 
 	// USER GUESS
 	handleFireShot:function(row,col) {
-		this.clearAllTimeouts()
 		var turn = this.makeClone(this.state.currentTurn);
-		var currentHits = this.makeClone(this.state.hitCheckBoard)
-		var computerBoard = this.makeClone(this.state.computerBoard)
-		var cell = computerBoard[row][col].cellType
-		var hitStatus
-		if (currentHits[row][col].cellType !== "empty") {
-			return
-		}
-		else {
-			switch (cell) {
-				case 'empty':
-					if (currentHits[row][col].cellType === "empty") {
-						currentHits[row][col].cellType = 'miss'
-						hitStatus = 'miss'
-						turn = "computer"
+		if (turn !== "computer") {
+			this.clearAllTimeouts()
+			var currentHits = this.makeClone(this.state.hitCheckBoard)
+			var computerBoard = this.makeClone(this.state.computerBoard)
+			var cell = computerBoard[row][col].cellType
+			var hitStatus
+			if (currentHits[row][col].cellType !== "empty") {
+				return
+			}
+			else {
+				switch (cell) {
+					case 'empty':
+						if (currentHits[row][col].cellType === "empty") {
+							currentHits[row][col].cellType = 'miss'
+							hitStatus = 'miss'
+							turn = "computer"
 
-					}
-					break;
-				case 'ship':
-					if (currentHits[row][col].cellType === "empty") {
-						currentHits[row][col].cellType = 'hit'
-						hitStatus = 'hit'
-						turn = 'computer'
-					}
-					break;
+						}
+						break;
+					case 'ship':
+						if (currentHits[row][col].cellType === "empty") {
+							currentHits[row][col].cellType = 'hit'
+							hitStatus = 'hit'
+							turn = 'computer'
+						}
+						break;
+				}
+			}
+			this.translateCoordinates(row, col, hitStatus)
+			this.setState({
+				currentTurn: turn,
+				hitCheckBoard: currentHits
+			})
+			if (turn === "computer") {
+				var timeout = setTimeout(this.handleComputerGuess, 3000)
+				this.setState({
+					timeouts: timeout
+				})
 			}
 		}
-		this.translateCoordinates(row, col, hitStatus)
-		this.setState({
-			currentTurn: turn,
-			hitCheckBoard: currentHits
-		})
-		if (turn === "computer") {
-			var timeout = setTimeout(this.handleComputerGuess, 3000)
-			this.setState({
-				timeouts: timeout
-			})
-		}
+		
 	},
 
 	// COMPUTER GUESS
@@ -734,7 +738,6 @@ var Body = React.createClass({
 	determineCoords:function(){
 		var lastGuess= this.makeClone(this.state.lastComputerGuess)
 		var newGuess
-		
 		if (lastGuess.hit === null) {
 			newGuess = this.generateRandomComputerGuess()
 		}
@@ -748,7 +751,6 @@ var Body = React.createClass({
 		var newGuess = this.makeClone(this.state.lastComputerGuess)
 		var userBoard = this.makeClone(this.state.board.grid)
 		var hitStatus
-		
 		if (userBoard[guess.row][guess.col].cellType === "ship") {
 			newCheck[guess.row][guess.col].cellType = "hit"
 			hitStatus = "hit"
@@ -770,7 +772,7 @@ var Body = React.createClass({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
 			lastComputerGuess: newGuess,
-			turn: "user"
+			currentTurn: "user"
 		})
 	},
 
@@ -849,6 +851,7 @@ var Body = React.createClass({
 				toBeShown = <CurrentGame data={this.state} handleFireShot = {this.handleFireShot} />
 				break;
 		}
+		debugger
 		return (
 			<div id="body-container" className="">
 				{toBeShown}
