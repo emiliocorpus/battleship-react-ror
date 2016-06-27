@@ -120,19 +120,18 @@ var Body = React.createClass({
 									9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
 					},
 					computerCheckBoard: {
-									0: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									1: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									2: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									3: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									4: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									5: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									6: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									7: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									8: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
-									9: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}]
-					}, 
+									0: [{cellType: "empty", coords: {row: 0, col: 0}}, {cellType: "empty", coords: {row: 0, col: 1}}, {cellType: "empty", coords: {row: 0, col: 2}}, {cellType: "empty", coords: {row: 0, col: 3}}, {cellType: "empty", coords: {row: 0, col: 4}}, {cellType: "empty", coords: {row: 0, col: 5}}, {cellType: "empty", coords: {row: 0, col: 6}}, {cellType: "empty", coords: {row: 0, col: 7}}, {cellType: "empty", coords: {row: 0, col: 8}}, {cellType: "empty", coords: {row: 0, col: 9}}],
+									1: [{cellType: "empty", coords: {row: 1, col: 0}}, {cellType: "empty", coords: {row: 1, col: 1}}, {cellType: "empty", coords: {row: 1, col: 2}}, {cellType: "empty", coords: {row: 1, col: 3}}, {cellType: "empty", coords: {row: 1, col: 4}}, {cellType: "empty", coords: {row: 1, col: 5}}, {cellType: "empty", coords: {row: 1, col: 6}}, {cellType: "empty", coords: {row: 1, col: 7}}, {cellType: "empty", coords: {row: 1, col: 8}}, {cellType: "empty", coords: {row: 1, col: 9}}],
+									2: [{cellType: "empty", coords: {row: 2, col: 0}}, {cellType: "empty", coords: {row: 2, col: 1}}, {cellType: "empty", coords: {row: 2, col: 2}}, {cellType: "empty", coords: {row: 2, col: 3}}, {cellType: "empty", coords: {row: 2, col: 4}}, {cellType: "empty", coords: {row: 2, col: 5}}, {cellType: "empty", coords: {row: 2, col: 6}}, {cellType: "empty", coords: {row: 2, col: 7}}, {cellType: "empty", coords: {row: 2, col: 8}}, {cellType: "empty", coords: {row: 2, col: 9}}],
+									3: [{cellType: "empty", coords: {row: 3, col: 0}}, {cellType: "empty", coords: {row: 3, col: 1}}, {cellType: "empty", coords: {row: 3, col: 2}}, {cellType: "empty", coords: {row: 3, col: 3}}, {cellType: "empty", coords: {row: 3, col: 4}}, {cellType: "empty", coords: {row: 3, col: 5}}, {cellType: "empty", coords: {row: 3, col: 6}}, {cellType: "empty", coords: {row: 3, col: 7}}, {cellType: "empty", coords: {row: 3, col: 8}}, {cellType: "empty", coords: {row: 3, col: 9}}],
+									4: [{cellType: "empty", coords: {row: 4, col: 0}}, {cellType: "empty", coords: {row: 4, col: 1}}, {cellType: "empty", coords: {row: 4, col: 2}}, {cellType: "empty", coords: {row: 4, col: 3}}, {cellType: "empty", coords: {row: 4, col: 4}}, {cellType: "empty", coords: {row: 4, col: 5}}, {cellType: "empty", coords: {row: 4, col: 6}}, {cellType: "empty", coords: {row: 4, col: 7}}, {cellType: "empty", coords: {row: 4, col: 8}}, {cellType: "empty", coords: {row: 4, col: 9}}],
+									5: [{cellType: "empty", coords: {row: 5, col: 0}}, {cellType: "empty", coords: {row: 5, col: 1}}, {cellType: "empty", coords: {row: 5, col: 2}}, {cellType: "empty", coords: {row: 5, col: 3}}, {cellType: "empty", coords: {row: 5, col: 4}}, {cellType: "empty", coords: {row: 5, col: 5}}, {cellType: "empty", coords: {row: 5, col: 6}}, {cellType: "empty", coords: {row: 5, col: 7}}, {cellType: "empty", coords: {row: 5, col: 8}}, {cellType: "empty", coords: {row: 5, col: 9}}],
+									6: [{cellType: "empty", coords: {row: 6, col: 0}}, {cellType: "empty", coords: {row: 6, col: 1}}, {cellType: "empty", coords: {row: 6, col: 2}}, {cellType: "empty", coords: {row: 6, col: 3}}, {cellType: "empty", coords: {row: 6, col: 4}}, {cellType: "empty", coords: {row: 6, col: 5}}, {cellType: "empty", coords: {row: 6, col: 6}}, {cellType: "empty", coords: {row: 6, col: 7}}, {cellType: "empty", coords: {row: 6, col: 8}}, {cellType: "empty", coords: {row: 6, col: 9}}],
+									7: [{cellType: "empty", coords: {row: 7, col: 0}}, {cellType: "empty", coords: {row: 7, col: 1}}, {cellType: "empty", coords: {row: 7, col: 2}}, {cellType: "empty", coords: {row: 7, col: 3}}, {cellType: "empty", coords: {row: 7, col: 4}}, {cellType: "empty", coords: {row: 7, col: 5}}, {cellType: "empty", coords: {row: 7, col: 6}}, {cellType: "empty", coords: {row: 7, col: 7}}, {cellType: "empty", coords: {row: 7, col: 8}}, {cellType: "empty", coords: {row: 7, col: 9}}],
+									8: [{cellType: "empty", coords: {row: 8, col: 0}}, {cellType: "empty", coords: {row: 8, col: 1}}, {cellType: "empty", coords: {row: 8, col: 2}}, {cellType: "empty", coords: {row: 8, col: 3}}, {cellType: "empty", coords: {row: 8, col: 4}}, {cellType: "empty", coords: {row: 8, col: 5}}, {cellType: "empty", coords: {row: 8, col: 6}}, {cellType: "empty", coords: {row: 8, col: 7}}, {cellType: "empty", coords: {row: 8, col: 8}}, {cellType: "empty", coords: {row: 8, col: 9}}],
+									9: [{cellType: "empty", coords: {row: 9, col: 0}}, {cellType: "empty", coords: {row: 9, col: 1}}, {cellType: "empty", coords: {row: 9, col: 2}}, {cellType: "empty", coords: {row: 9, col: 3}}, {cellType: "empty", coords: {row: 9, col: 4}}, {cellType: "empty", coords: {row: 9, col: 5}}, {cellType: "empty", coords: {row: 9, col: 6}}, {cellType: "empty", coords: {row: 9, col: 7}}, {cellType: "empty", coords: {row: 9, col: 8}}, {cellType: "empty", coords: {row: 9, col: 9}}]
+					},
 					validGuesses:{
-						user: [],
 						computer:[]
 					},
 					gameStatus: {
@@ -148,7 +147,6 @@ var Body = React.createClass({
 					currentTurn: "user"
 		}
 	},
-
 	// FUNCTION THAT PROPERLY COPIES OBJECT
 	makeClone:function(obj) {
 	    var copy;
@@ -173,7 +171,6 @@ var Body = React.createClass({
 
 	        throw new Error("Unable to copy obj! Its type isn't supported.");
 	},
-
 	// FUNCTIONS THAT INITIATE CHANGES IN STATE    i.e. game setup, and 
 	startNewGame:function() {
 		this.setState({
@@ -186,7 +183,6 @@ var Body = React.createClass({
 			started: 'game commenced'
 		})
 	},
-
 	// FUNCTIONS FOR USER BOARD SETUP
 	saveLastBoardState:function(lastBoard){
 		var previous = this.makeClone(this.state.previousStatesPriorToStart)
@@ -209,7 +205,6 @@ var Body = React.createClass({
 			userPieces:lastState.prevPieces
 		})
 	},
-
 	// PLACING USER PIECES
 	makePieceSelection:function(selection){
 		console.log(selection)
@@ -409,14 +404,11 @@ var Body = React.createClass({
 			})
 		}
 	},
-
-
 	// GENERATE RANDOM USER BOARD
 	generateRandomUserBoard:function() {
 		this.generateComputerBoard('user')
 		this.generateComputerBoard('computer')
 	},
-
 	// COMPUTER BOARD SETUP (RANDOMIZED BOARD)
 	generateComputerBoard:function(boardType) {
 		var shipType;
@@ -509,7 +501,6 @@ var Body = React.createClass({
 			}
 		})
 	},
-
 	cycleNextShip:function(computerPieces) {
 		var piecesLeft = ["aircraftCarrier", "battleship", "destroyer", "submarine", "patrolShip"]
 		if (computerPieces.aircraftCarrier.piecesLeft === 0) {
@@ -685,13 +676,10 @@ var Body = React.createClass({
 			return null
 		}
 	},
-
 	clearAllTimeouts:function(timeouts){
 		var timeouts = this.makeClone(this.state.timeouts)
 		clearTimeout(timeouts)
 	},
-
-
 	// USER GUESS
 	handleFireShot:function(row,col) {
 		var turn = this.makeClone(this.state.currentTurn);
@@ -739,9 +727,7 @@ var Body = React.createClass({
 				})
 			}
 		}
-		
 	},
-
 	// COMPUTER GUESS
 	handleComputerGuess:function(){
 		this.determineCoords()
@@ -781,7 +767,6 @@ var Body = React.createClass({
 			
 		}
 		this.translateCoordinates(guess.row, guess.col, hitStatus)
-		debugger
 		this.setState({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
@@ -790,6 +775,26 @@ var Body = React.createClass({
 			gameStatus: gameCheck
 		})
 	},
+	collectPossibleGuesses:function() {
+		var computerBoard = this.state.computerCheckBoard
+		var possibleGuesses =[]
+		debugger
+		for (var row =0; row <= 9; row++) {
+			for (var col =0; col <= 9; col++){
+
+				if (computerBoard[row][col].cellType === "empty") {
+					possibleGuesses.push(computerBoard[row][col])
+				}
+			}
+		}
+		debugger
+		this.setState({
+			validGuesses: {
+				computer:possibleGuesses
+			}
+		})
+	},
+
 
 	translateCoordinates:function(row, col, hitStatus) {
 		var newCol = this.state.colLayout[col]
@@ -836,16 +841,13 @@ var Body = React.createClass({
 		}
 	},
 	generateRandomComputerGuess:function() {
-		var row =  Math.floor((Math.random() * 9) + 0)
-		var col =  Math.floor((Math.random() * 9) + 0)		
+		this.collectPossibleGuesses()
 		var computerCheck = this.makeClone(this.state.computerCheckBoard) 
-		
-		if (computerCheck[row][col].cellType === "empty") {
-			return {row: row, col: col}
-		}
-		else {
-			this.generateRandomComputerGuess()
-		}
+		var possibleComputerGuesses = this.makeClone(this.state.validGuesses.computer)
+		var randomRawGuess = Math.floor((Math.random() * (possibleComputerGuesses.length-1)) + 0)	
+		var guess = possibleComputerGuesses[randomRawGuess]
+		debugger	
+		return {row: guess.coords.row, col: guess.coords.col}
 	},
 
 	// RENDERS PAGE
