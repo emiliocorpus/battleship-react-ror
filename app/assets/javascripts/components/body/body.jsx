@@ -714,13 +714,17 @@ var Body = React.createClass({
 				}
 			}
 			this.translateCoordinates(row, col, hitStatus)
-			debugger
+	
 			this.setState({
 				currentTurn: turn,
 				hitCheckBoard: currentHits,
 				gameStatus: gameCheck
 			})
-			if (turn === "computer") {
+			var endGameCheck = this.endGameCheck()
+			if (endGameCheck.gameStatus === "completed") {
+				console.log("congratulations!")
+			}
+			if (turn === "computer" && endGameCheck.gameStatus === "in progress") {
 				var timeout = setTimeout(this.handleComputerGuess, 3000)
 				this.setState({
 					timeouts: timeout
@@ -731,6 +735,11 @@ var Body = React.createClass({
 	// COMPUTER GUESS
 	handleComputerGuess:function(){
 		this.determineCoords()
+		var gameCheck = this.endGameCheck()
+		if (gameCheck.gameStatus === "completed") {
+			console.log("Congratulations")
+		}
+
 	},
 	determineCoords:function(){
 		var lastGuess= this.makeClone(this.state.lastComputerGuess)
@@ -778,7 +787,7 @@ var Body = React.createClass({
 	collectPossibleGuesses:function() {
 		var computerBoard = this.state.computerCheckBoard
 		var possibleGuesses =[]
-		debugger
+
 		for (var row =0; row <= 9; row++) {
 			for (var col =0; col <= 9; col++){
 
@@ -787,7 +796,7 @@ var Body = React.createClass({
 				}
 			}
 		}
-		debugger
+
 		this.setState({
 			validGuesses: {
 				computer:possibleGuesses
@@ -846,8 +855,22 @@ var Body = React.createClass({
 		var possibleComputerGuesses = this.makeClone(this.state.validGuesses.computer)
 		var randomRawGuess = Math.floor((Math.random() * (possibleComputerGuesses.length-1)) + 0)	
 		var guess = possibleComputerGuesses[randomRawGuess]
-		debugger	
 		return {row: guess.coords.row, col: guess.coords.col}
+	},
+
+
+	// END GAME CHECK
+	endGameCheck:function() {
+		var hitCellCount = this.makeClone(this.state.gameStatus) 
+		if (hitCellCount.computers === 29) {
+			return {status: "YOU WIN! You have sunk all of the battleships!", winner: "user", gameStatus: "completed"}
+		}
+		else if (hitCellCount.users === 29) {
+			return {status: "KABLOOOOM! All of your battleships have been sunk", winner: "computer", gameStatus: "completed"}
+		}
+		else {
+			return {gameStatus: "in progress"}
+		}
 	},
 
 	// RENDERS PAGE
