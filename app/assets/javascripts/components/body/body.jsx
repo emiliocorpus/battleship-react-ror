@@ -43,7 +43,6 @@ var Body = React.createClass({
 						targetStatus: null
 					},
 					timeouts: null,
-
 					blankBoard: {
 									0: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									1: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
@@ -67,7 +66,7 @@ var Body = React.createClass({
 									7: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									8: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}],
 									9: [{cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}, {cellType: "empty", shipType:null,shipId:null}]
-							},
+					},
 					userPieces: {
 						aircraftCarrier: {
 							direction:"hz",
@@ -131,6 +130,14 @@ var Body = React.createClass({
 									7: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
 									8: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}],
 									9: [{cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}, {cellType: "empty"}]
+					}, 
+					validGuesses:{
+						user: [],
+						computer:[]
+					},
+					gameStatus: {
+						users: 0,
+						computers: 0
 					},
 					lastComputerGuess: {
 						hit: null,
@@ -303,7 +310,7 @@ var Body = React.createClass({
 			for (var i=0; i <= shipLength; i++) {
 				newBoard[row][col+i].cellType = "ship"
 				newBoard[row][col+i].shipType = selectedPiece
-				
+				// this represents the length of the ship
 				newBoard[row][col+i].shipId =  i + 1
 			}
 				var copiedPieces = this.state.userPieces
@@ -694,6 +701,7 @@ var Body = React.createClass({
 			var computerBoard = this.makeClone(this.state.computerBoard)
 			var cell = computerBoard[row][col].cellType
 			var hitStatus
+			var gameCheck = this.makeClone(this.state.gameStatus)
 			if (currentHits[row][col].cellType !== "empty") {
 				return
 			}
@@ -711,15 +719,18 @@ var Body = React.createClass({
 						if (currentHits[row][col].cellType === "empty") {
 							currentHits[row][col].cellType = 'hit'
 							hitStatus = 'hit'
+							gameCheck.computers += 1
 							turn = 'computer'
 						}
 						break;
 				}
 			}
 			this.translateCoordinates(row, col, hitStatus)
+			debugger
 			this.setState({
 				currentTurn: turn,
-				hitCheckBoard: currentHits
+				hitCheckBoard: currentHits,
+				gameStatus: gameCheck
 			})
 			if (turn === "computer") {
 				var timeout = setTimeout(this.handleComputerGuess, 3000)
@@ -750,14 +761,16 @@ var Body = React.createClass({
 		var newCheck = this.makeClone(this.state.computerCheckBoard)
 		var newGuess = this.makeClone(this.state.lastComputerGuess)
 		var userBoard = this.makeClone(this.state.board.grid)
+		var gameCheck = this.makeClone(this.state.gameStatus)
 		var hitStatus
 		if (userBoard[guess.row][guess.col].cellType === "ship") {
 			newCheck[guess.row][guess.col].cellType = "hit"
+			newCheck[guess.row][guess.col].shipType = userBoard[guess.row][guess.col].shipType
 			hitStatus = "hit"
 			newGuess.hit = true
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
-			
+			gameCheck.users += 1
 		}
 		else {
 			newCheck[guess.row][guess.col].cellType = "miss"
@@ -768,11 +781,13 @@ var Body = React.createClass({
 			
 		}
 		this.translateCoordinates(guess.row, guess.col, hitStatus)
+		debugger
 		this.setState({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
 			lastComputerGuess: newGuess,
-			currentTurn: "user"
+			currentTurn: "user",
+			gameStatus: gameCheck
 		})
 	},
 
@@ -821,8 +836,8 @@ var Body = React.createClass({
 		}
 	},
 	generateRandomComputerGuess:function() {
-		var row =  Math.floor((Math.random() * 10) + 0)
-		var col =  Math.floor((Math.random() * 10) + 0)		
+		var row =  Math.floor((Math.random() * 9) + 0)
+		var col =  Math.floor((Math.random() * 9) + 0)		
 		var computerCheck = this.makeClone(this.state.computerCheckBoard) 
 		
 		if (computerCheck[row][col].cellType === "empty") {
@@ -851,7 +866,6 @@ var Body = React.createClass({
 				toBeShown = <CurrentGame data={this.state} handleFireShot = {this.handleFireShot} />
 				break;
 		}
-		debugger
 		return (
 			<div id="body-container" className="">
 				{toBeShown}
