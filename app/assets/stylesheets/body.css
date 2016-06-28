@@ -261,22 +261,58 @@
 
 .coordinates {
 	font-weight:bolder;
+	color: yellow;
+	
+}
+.white-font {
+	color:white;
+}
+.green-font {
+	color:#25FF0A;;
+}
+.yellow-font {
+	color:yellow;
+}
+.text-box-container {
+	background-color: #1F3568;
+	text-align:left;
+	height:140px;
+	width:60%;
+	padding-left:15px;
+	padding-top:10px;
+	border-radius:25px;
+	margin:0 auto;
+}
+.text-box {
+	background-color: #1F3568;
+	font-size:25px;
+	height:100px;
+	margin: 0 auto;
+	text-align:left;
+	line-height:80px;
+	border-radius:25px;
+	margin-bottom:20px;
+	overflow-y: scroll;
+	padding-left:75px;
+	padding-top:10px;
+	padding-bottom:10px;
 	
 }
 
-.green-font {
-	color:green;
+.shot-feedback {
+	margin-top: 0;
+	margin-bottom:-0;
 }
-.text-box {
-	background-color: white;
-	opacity:.4;
-	color:#343434;
-	font-size:25px;
-	margin: 0 auto;
-	line-height:80px;
-	margin-bottom:20px;
+	
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
 }
-
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #EFEFEF;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 #rotate-to-landscape {
 	display:none;
 }

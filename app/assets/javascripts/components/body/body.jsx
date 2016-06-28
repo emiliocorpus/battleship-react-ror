@@ -131,6 +131,7 @@ var Body = React.createClass({
 									8: [{cellType: "empty", coords: {row: 8, col: 0}}, {cellType: "empty", coords: {row: 8, col: 1}}, {cellType: "empty", coords: {row: 8, col: 2}}, {cellType: "empty", coords: {row: 8, col: 3}}, {cellType: "empty", coords: {row: 8, col: 4}}, {cellType: "empty", coords: {row: 8, col: 5}}, {cellType: "empty", coords: {row: 8, col: 6}}, {cellType: "empty", coords: {row: 8, col: 7}}, {cellType: "empty", coords: {row: 8, col: 8}}, {cellType: "empty", coords: {row: 8, col: 9}}],
 									9: [{cellType: "empty", coords: {row: 9, col: 0}}, {cellType: "empty", coords: {row: 9, col: 1}}, {cellType: "empty", coords: {row: 9, col: 2}}, {cellType: "empty", coords: {row: 9, col: 3}}, {cellType: "empty", coords: {row: 9, col: 4}}, {cellType: "empty", coords: {row: 9, col: 5}}, {cellType: "empty", coords: {row: 9, col: 6}}, {cellType: "empty", coords: {row: 9, col: 7}}, {cellType: "empty", coords: {row: 9, col: 8}}, {cellType: "empty", coords: {row: 9, col: 9}}]
 					},
+					previousMessages:[],
 					validGuesses:{
 						computer:[]
 					},
@@ -138,6 +139,7 @@ var Body = React.createClass({
 						users: 0,
 						computers: 0
 					},
+					endGameMessage: null,
 					lastComputerGuess: {
 						hit: null,
 						coords: {row: null, col: null}
@@ -688,7 +690,10 @@ var Body = React.createClass({
 			var currentHits = this.makeClone(this.state.hitCheckBoard)
 			var computerBoard = this.makeClone(this.state.computerBoard)
 			var cell = computerBoard[row][col].cellType
+			var colLayout = this.makeClone(this.state.colLayout)
+			var previousMessages = this.makeClone(this.state.previousMessages)
 			var hitStatus
+			var text
 			var gameCheck = this.makeClone(this.state.gameStatus)
 			if (currentHits[row][col].cellType !== "empty") {
 				return
@@ -701,6 +706,9 @@ var Body = React.createClass({
 							hitStatus = 'miss'
 							turn = "computer"
 
+							
+							text = "YOU: " + colLayout[col].toString() + "-" + (row +1).toString() + " was a miss..."
+							previousMessages.push(text)
 						}
 						break;
 					case 'ship':
@@ -709,6 +717,9 @@ var Body = React.createClass({
 							hitStatus = 'hit'
 							gameCheck.computers += 1
 							turn = 'computer'
+							
+							text = "YOU: " + colLayout[col].toString() + "-" + (row +1).toString()+  " was a direct hit!!"
+							previousMessages.push(text)
 						}
 						break;
 				}
@@ -718,7 +729,8 @@ var Body = React.createClass({
 			this.setState({
 				currentTurn: turn,
 				hitCheckBoard: currentHits,
-				gameStatus: gameCheck
+				gameStatus: gameCheck,
+				previousMessages: previousMessages
 			})
 			var endGameCheck = this.endGameCheck()
 			if (endGameCheck.gameStatus === "completed") {
@@ -757,6 +769,9 @@ var Body = React.createClass({
 		var newGuess = this.makeClone(this.state.lastComputerGuess)
 		var userBoard = this.makeClone(this.state.board.grid)
 		var gameCheck = this.makeClone(this.state.gameStatus)
+		var colLayout = this.makeClone(this.state.colLayout)
+		var text
+		var previousMessages = this.makeClone(this.state.previousMessages)
 		var hitStatus
 		if (userBoard[guess.row][guess.col].cellType === "ship") {
 			newCheck[guess.row][guess.col].cellType = "hit"
@@ -766,6 +781,8 @@ var Body = React.createClass({
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
 			gameCheck.users += 1
+			
+			text = "COMPUTER: " + colLayout[guess.col].toString() + "-" + (guess.row +1).toString() + " was a direct hit!!"
 		}
 		else {
 			newCheck[guess.row][guess.col].cellType = "miss"
@@ -774,14 +791,18 @@ var Body = React.createClass({
 			newGuess.coords = {row: guess.row, col: guess.col}
 			userBoard[guess.row][guess.col].hitStatus = true
 			
+			text = "COMPUTER: " + colLayout[guess.col].toString() + "-" + (guess.row +1).toString() + " was a miss..."
+			
 		}
+		previousMessages.push(text)
 		this.translateCoordinates(guess.row, guess.col, hitStatus)
 		this.setState({
 			computerCheckBoard: newCheck,
 			board: {grid: userBoard},
 			lastComputerGuess: newGuess,
 			currentTurn: "user",
-			gameStatus: gameCheck
+			gameStatus: gameCheck,
+			previousMessages: previousMessages
 		})
 	},
 	collectPossibleGuesses:function() {
@@ -858,28 +879,28 @@ var Body = React.createClass({
 		return {row: guess.coords.row, col: guess.coords.col}
 	},
 
-
 	// END GAME CHECK
 	endGameCheck:function() {
 		var hitCellCount = this.makeClone(this.state.gameStatus) 
+		
 		if (hitCellCount.computers === 29) {
-			return {status: "YOU WIN! You have sunk all of the battleships!", winner: "user", gameStatus: "completed"}
+			gameCheck = {status: "YOU WIN! You have sunk all of the battleships!", winner: "user", gameStatus: "completed"}
+			this.setState({endGameMessage: gameCheck.status })
 		}
 		else if (hitCellCount.users === 29) {
-			return {status: "KABLOOOOM! All of your battleships have been sunk", winner: "computer", gameStatus: "completed"}
+			gameCheck = {status: "KABLOOOOM! You lose! All of your battleships have been sunk", winner: "computer", gameStatus: "completed"}
+			this.setState({endGameMessage: gameCheck.status })
 		}
 		else {
-			return {gameStatus: "in progress"}
+			gameCheck = {gameStatus: "in progress"}
 		}
+		return gameCheck
 	},
 
 	// RENDERS PAGE
 	render:function(){
 		var toBeShown;
 		var totalPiecesLeft = this.state.userPieces.aircraftCarrier.piecesLeft + this.state.userPieces.destroyer.piecesLeft + this.state.userPieces.battleship.piecesLeft + this.state.userPieces.patrolShip.piecesLeft + this.state.userPieces.submarine.piecesLeft
-		if (totalPiecesLeft === 0) {
-			console.log("***********************************")
-		}
 		switch (this.state.started) {
 			case null:
 				toBeShown = <NewGameButton startGame={this.startNewGame} />
@@ -891,6 +912,7 @@ var Body = React.createClass({
 				toBeShown = <CurrentGame data={this.state} handleFireShot = {this.handleFireShot} />
 				break;
 		}
+		debugger
 		return (
 			<div id="body-container" className="">
 				{toBeShown}
