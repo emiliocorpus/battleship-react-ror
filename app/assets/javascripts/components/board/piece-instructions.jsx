@@ -27,9 +27,9 @@ var PieceInstructions = React.createClass({
 		if (this.props.data)
 		return (
 			<div id="instructions">
-				<div id="rotate-to-landscape">Please rotate to landscape view  and refresh page for better functionality</div>
+				
 				<div className="instruction-content inline-block">
-				<h3>INSTRUCTIONS</h3>
+				<h2>INSTRUCTIONS</h2>
 					<ul>
 						<li>Click a ship below and then click desired cell on board</li>
 							<ul>

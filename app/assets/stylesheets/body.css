@@ -1,5 +1,6 @@
 #page-container {
-	zoom: 90%;
+	zoom: 85%;
+	min-width:1250px;
 }
 #body-container {
 	padding: 2%;
@@ -25,11 +26,11 @@
 	text-decoration:none;
 	
 }
-#new-game-link:hover{
+.new-game-link:hover{
 	border:none;
   	outline:none;
   	text-decoration:none;
-  	color:inherit;
+  	background-color: #1F3568;
 }
 #new-game-button:hover{
 	width:325px;
@@ -124,6 +125,9 @@
 	margin-bottom:10px;
 }
 
+ul {
+	list-style: none;
+}
 .pieces {
 	width:95%;
 	text-align:center;
@@ -318,59 +322,5 @@
     background-color: #EFEFEF;
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
-#rotate-to-landscape {
-	display:none;
-}
 
-@media only screen and (max-width : 320px) {
-/* Styles */
-	#rotate-to-landscape {
-	display:inline;
-	}
-	.instruction-content, .pieces, .random-board-button, .board-placement-landscape-check, .board {
-	display: none;
-	}
-}
-
-/* Smartphones (portrait) ----------- */
-@media only screen and (orientation : portrait) {
-/* Styles */
-	#rotate-to-landscape {
-	display:inline;
-	}
-	.instruction-content, .pieces, .random-board-button, .board-placement-landscape-check, .instruction-content {
-	display: none;
-	}
-}
-
-@media only screen 
-and (min-device-width : 414px) 
-and (max-device-width : 736px) { .instruction-content, .pieces {
-	display: none;}
-}
-
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) 
-and (orientation : landscape) { .instruction-content, .pieces {
-	display: none;
-}}
-
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) 
-and (orientation : landscape) {.instruction-content, .pieces {
-display: none;
-}}
-
-/* iPhone 6 in portrait */
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) 
-and (orientation : portrait) {#rotate-to-landscape {
-	display:inline;
-	.instruction-content, .pieces, .random-board-button, .board-placement-landscape-check, .instruction-content {
-	display: none;
-	}
-	}}
 

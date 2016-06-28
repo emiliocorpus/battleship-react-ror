@@ -175,6 +175,7 @@ var Body = React.createClass({
 	},
 	// FUNCTIONS THAT INITIATE CHANGES IN STATE    i.e. game setup, and 
 	startNewGame:function() {
+		this.setState(this.getInitialState())
 		this.setState({
 			started: 'placing pieces',
 		})
@@ -684,7 +685,8 @@ var Body = React.createClass({
 	},
 	// USER GUESS
 	handleFireShot:function(row,col) {
-		if (endGameCheck.gameStatus !== "completed") {
+		var endGameMessage = this.makeClone(this.state.endGameMessage)
+		if (endGameMessage === null) {
 			var turn = this.makeClone(this.state.currentTurn);
 			if (turn !== "computer") {
 				this.clearAllTimeouts()
@@ -738,7 +740,7 @@ var Body = React.createClass({
 					console.log("congratulations!")
 				}
 				if (turn === "computer" && endGameCheck.gameStatus === "in progress") {
-					var timeout = setTimeout(this.handleComputerGuess, 3000)
+					var timeout = setTimeout(this.handleComputerGuess, 2500)
 					this.setState({
 						timeouts: timeout
 					})
@@ -911,7 +913,7 @@ var Body = React.createClass({
 				toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection} handlePieceSelection={this.makePieceSelection} placePiece={this.placePiece} handleRemovePiece={this.undoLastMove} piecesLeft={totalPiecesLeft} handleStart={this.commenceGame} generateRandomBoard={this.generateRandomUserBoard}/>
 				break;
 			case 'game commenced':
-				toBeShown = <CurrentGame data={this.state} handleFireShot = {this.handleFireShot} />
+				toBeShown = <CurrentGame data={this.state} handleFireShot = {this.handleFireShot} startNewGame={this.startNewGame}/>
 				break;
 		}
 		return (
