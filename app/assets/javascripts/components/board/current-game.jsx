@@ -23,10 +23,3 @@ var CurrentGame = React.createClass({
 	}
 
 })
-
-
-// CHECK FOR IF GAME IS DONE
-// if the count of hit cells is equal to 29, player wins
-// 
-// CHECK FOR IF SHIP IS SUNK
-// depending on ship length, check in direction in both vertical and horizontal

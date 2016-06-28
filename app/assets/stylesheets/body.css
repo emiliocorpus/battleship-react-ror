@@ -113,17 +113,22 @@
 	margin-right:30px;
 }
 #instructions {
-	color:white;
+	background-color: #1F3568;
+	padding:2%;
+	color:yellow;
+	border-radius:20px;
 	vertical-align: top;
 	display:inline-block;
 	width:50%;
 	text-align:left;
+	margin-bottom:10px;
 }
 
 .pieces {
 	width:95%;
 	text-align:center;
 	margin-left: 20px;
+	color:white;
 }
 
 .pieces div{
@@ -145,7 +150,7 @@
 }
 
 .selected-piece {
-	border: 2px solid #03253F;
+	border: 2px solid #F7F7F7;
 }
 
 

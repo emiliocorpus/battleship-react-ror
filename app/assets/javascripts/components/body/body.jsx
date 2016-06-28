@@ -3,7 +3,7 @@ var Body = React.createClass({
 	// SET INITIAL PARAMETER
 	getInitialState:function(){
 		return {
-					started:null,
+					started:"placing pieces",
 					board: { 
 							grid: {
 									0: [{cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}, {cellType: "empty", shipType:null,hitStatus:null}],
@@ -684,63 +684,65 @@ var Body = React.createClass({
 	},
 	// USER GUESS
 	handleFireShot:function(row,col) {
-		var turn = this.makeClone(this.state.currentTurn);
-		if (turn !== "computer") {
-			this.clearAllTimeouts()
-			var currentHits = this.makeClone(this.state.hitCheckBoard)
-			var computerBoard = this.makeClone(this.state.computerBoard)
-			var cell = computerBoard[row][col].cellType
-			var colLayout = this.makeClone(this.state.colLayout)
-			var previousMessages = this.makeClone(this.state.previousMessages)
-			var hitStatus
-			var text
-			var gameCheck = this.makeClone(this.state.gameStatus)
-			if (currentHits[row][col].cellType !== "empty") {
-				return
-			}
-			else {
-				switch (cell) {
-					case 'empty':
-						if (currentHits[row][col].cellType === "empty") {
-							currentHits[row][col].cellType = 'miss'
-							hitStatus = 'miss'
-							turn = "computer"
-
-							
-							text = "YOU: " + colLayout[col].toString() + "-" + (row +1).toString() + " was a miss..."
-							previousMessages.push(text)
-						}
-						break;
-					case 'ship':
-						if (currentHits[row][col].cellType === "empty") {
-							currentHits[row][col].cellType = 'hit'
-							hitStatus = 'hit'
-							gameCheck.computers += 1
-							turn = 'computer'
-							
-							text = "YOU: " + colLayout[col].toString() + "-" + (row +1).toString()+  " was a direct hit!!"
-							previousMessages.push(text)
-						}
-						break;
+		if (endGameCheck.gameStatus !== "completed") {
+			var turn = this.makeClone(this.state.currentTurn);
+			if (turn !== "computer") {
+				this.clearAllTimeouts()
+				var currentHits = this.makeClone(this.state.hitCheckBoard)
+				var computerBoard = this.makeClone(this.state.computerBoard)
+				var cell = computerBoard[row][col].cellType
+				var colLayout = this.makeClone(this.state.colLayout)
+				var previousMessages = this.makeClone(this.state.previousMessages)
+				var hitStatus
+				var text
+				var gameCheck = this.makeClone(this.state.gameStatus)
+				if (currentHits[row][col].cellType !== "empty") {
+					return
 				}
-			}
-			this.translateCoordinates(row, col, hitStatus)
-	
-			this.setState({
-				currentTurn: turn,
-				hitCheckBoard: currentHits,
-				gameStatus: gameCheck,
-				previousMessages: previousMessages
-			})
-			var endGameCheck = this.endGameCheck()
-			if (endGameCheck.gameStatus === "completed") {
-				console.log("congratulations!")
-			}
-			if (turn === "computer" && endGameCheck.gameStatus === "in progress") {
-				var timeout = setTimeout(this.handleComputerGuess, 3000)
+				else {
+					switch (cell) {
+						case 'empty':
+							if (currentHits[row][col].cellType === "empty") {
+								currentHits[row][col].cellType = 'miss'
+								hitStatus = 'miss'
+								turn = "computer"
+
+								
+								text = "YOU: " + colLayout[col].toString() + "-" + (row +1).toString() + " was a miss..."
+								previousMessages.push(text)
+							}
+							break;
+						case 'ship':
+							if (currentHits[row][col].cellType === "empty") {
+								currentHits[row][col].cellType = 'hit'
+								hitStatus = 'hit'
+								gameCheck.computers += 1
+								turn = 'computer'
+								
+								text = "YOU: " + colLayout[col].toString() + "-" + (row +1).toString()+  " was a direct hit!!"
+								previousMessages.push(text)
+							}
+							break;
+					}
+				}
+				this.translateCoordinates(row, col, hitStatus)
+		
 				this.setState({
-					timeouts: timeout
+					currentTurn: turn,
+					hitCheckBoard: currentHits,
+					gameStatus: gameCheck,
+					previousMessages: previousMessages
 				})
+				var endGameCheck = this.endGameCheck()
+				if (endGameCheck.gameStatus === "completed") {
+					console.log("congratulations!")
+				}
+				if (turn === "computer" && endGameCheck.gameStatus === "in progress") {
+					var timeout = setTimeout(this.handleComputerGuess, 3000)
+					this.setState({
+						timeouts: timeout
+					})
+				}
 			}
 		}
 	},
@@ -902,9 +904,9 @@ var Body = React.createClass({
 		var toBeShown;
 		var totalPiecesLeft = this.state.userPieces.aircraftCarrier.piecesLeft + this.state.userPieces.destroyer.piecesLeft + this.state.userPieces.battleship.piecesLeft + this.state.userPieces.patrolShip.piecesLeft + this.state.userPieces.submarine.piecesLeft
 		switch (this.state.started) {
-			case null:
-				toBeShown = <NewGameButton startGame={this.startNewGame} />
-				break;
+			// case null:
+			// 	toBeShown = <NewGameButton startGame={this.startNewGame} />
+			// 	break;
 			case 'placing pieces':
 				toBeShown = <NewGame data={this.state} handleDirectionChange={this.changePieceDirection} handlePieceSelection={this.makePieceSelection} placePiece={this.placePiece} handleRemovePiece={this.undoLastMove} piecesLeft={totalPiecesLeft} handleStart={this.commenceGame} generateRandomBoard={this.generateRandomUserBoard}/>
 				break;
@@ -912,7 +914,6 @@ var Body = React.createClass({
 				toBeShown = <CurrentGame data={this.state} handleFireShot = {this.handleFireShot} />
 				break;
 		}
-		debugger
 		return (
 			<div id="body-container" className="">
 				{toBeShown}

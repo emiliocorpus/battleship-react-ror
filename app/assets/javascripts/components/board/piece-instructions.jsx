@@ -29,14 +29,15 @@ var PieceInstructions = React.createClass({
 			<div id="instructions">
 				<div id="rotate-to-landscape">Please rotate to landscape view  and refresh page for better functionality</div>
 				<div className="instruction-content inline-block">
-				<h3>HOW TO PLACE SHIPS</h3>
+				<h3>INSTRUCTIONS</h3>
 					<ul>
 						<li>Click a ship below and then click desired cell on board</li>
 							<ul>
-								<li>Ship will either be placed from left to right, or downwards from the clicked cell</li>
-								<li>Ships may not be placed adjacted to each other!</li>
+								<li>Ship will be placed rightwards or downwards from the clicked cell</li>
+								<li>Ships may not be placed adjacent to each other!</li>
 							</ul>
 						<li>Double click desired piece <em>below</em> to rotate</li>
+						<li>Or if you are feeling lazy hit the 'Randomize' button</li>
 					</ul>
 				</div>
 
