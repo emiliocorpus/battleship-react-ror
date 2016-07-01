@@ -1,10 +1,11 @@
-#page-container {
+#battleship-page-container {
 	zoom: 85%;
 	min-width:1250px;
 }
-#body-container {
+#battleship-body-container {
 	padding: 2%;
 	width:100%;
+	height:100%;
 	margin-top:25px;
 	text-align:center;
 }
@@ -156,32 +157,6 @@ ul {
 .selected-piece {
 	border: 2px solid #F7F7F7;
 }
-
-
-/*UNDO BUTTON, START-GAME BUTTON*/
-/*.undo-button, .start-game-button, .random-board-button {
-	display:inline-block;
-	margin-top:15%;
-	border-radius:25px;
-	padding:2px;
-	border:2px solid white;
-	background-color:#03253f;
-	color:white;
-	height:50px;
-	text-align:center;
-	vertical-align:top;
-}
-
-.undo-button:hover, .start-game-button:hover, .random-board-button:hover{
-	box-shadow: 6px 5px 6px black;
-}
-
-.button-links {
-	text-decoration:none;
-	width: 100%;
-    height: 100%;
-}*/
-
 
 .random-board-button {
   background: #3498db;

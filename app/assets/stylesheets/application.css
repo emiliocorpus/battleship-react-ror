@@ -28,8 +28,12 @@ html {
 body{
 	margin: 0;
 	padding: 0;
-	background-color: #738A9C;
+   background-color: #738A9C;
    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.battleship-body {
+      
 }
 
 .debugger {

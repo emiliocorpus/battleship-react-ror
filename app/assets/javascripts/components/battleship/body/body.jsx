@@ -917,7 +917,7 @@ var Body = React.createClass({
 				break;
 		}
 		return (
-			<div id="body-container" className="">
+			<div id="battleship-body-container" className="debugger">
 				{toBeShown}
 			</div>
 		)
