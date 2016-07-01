@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :scores
-  resources :page, only: [:index]
   root 'page#index'  
+  get '/battleship' => 'page#battleship'
+  get '/hangman' => 'page#hangman'
 end

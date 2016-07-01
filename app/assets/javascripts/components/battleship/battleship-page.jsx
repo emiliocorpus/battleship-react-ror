@@ -1,4 +1,4 @@
-var Page = React.createClass({
+var BattleshipPage = React.createClass({
 	render:function(){
 		return (
 			<div id="page-container">
