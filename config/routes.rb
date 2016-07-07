@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'hangman/index'
+
   root 'page#index'  
-  get '/battleship' => 'page#battleship'
-  get '/hangman' => 'page#hangman'
+  get '/battleship' => 'battleship#index'
+  get '/hangman' => 'hangman#index'
 end

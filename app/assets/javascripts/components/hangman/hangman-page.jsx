@@ -21,6 +21,4 @@ var HangmanPage = React.createClass({
 	if against computer
 		player will select category and then confrim the gam
 		game will beg
-
-
 */
