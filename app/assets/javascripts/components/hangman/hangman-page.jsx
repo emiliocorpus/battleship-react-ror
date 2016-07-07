@@ -2,7 +2,9 @@ var HangmanPage = React.createClass({
 	render:function(){
 		return (
 			<div id="hangman-page-container">
-				YOLO MOTHERFUCKERS
+				<div className="debugger">
+					Would you like to play vs the computer or with a friend?
+				</div>
 			</div>
 		)
 	}

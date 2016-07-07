@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
  *= require_self
  */
 
@@ -25,16 +25,6 @@ html {
    box-sizing: inherit;
 }
 
-body{
-	margin: 0;
-	padding: 0;
-   background-color: #738A9C;
-   font-family: "Lucida Console", Monaco, monospace;
-}
-
-.battleship-body {
-      
-}
 
 .debugger {
    border: 1px solid red;

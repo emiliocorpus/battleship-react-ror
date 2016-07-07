@@ -1,3 +1,34 @@
+body{
+	margin: 0;
+	padding: 0;
+   background-color: #738A9C;
+   font-family: "Lucida Console", Monaco, monospace;
+}
+
+.battleship-body {
+      
+}
+
+
+#header {
+	width:100%;
+	height:100px;
+	background-color:#03253F;
+	margin: 0 auto;
+	line-height: 100px;
+	text-align:center;
+}
+
+#battleship{
+	color: #FFF;
+	font-size:20px;
+}
+
+#description{
+	color: #ACFF8F;
+	font-size:15px;
+}
+
 #battleship-page-container {
 	zoom: 85%;
 	min-width:1250px;
@@ -269,11 +300,10 @@ ul {
 }
 .text-box {
 	background-color: #1F3568;
-	font-size:25px;
+	font-size:15px;
 	height:100px;
 	margin: 0 auto;
 	text-align:left;
-	line-height:80px;
 	border-radius:25px;
 	margin-bottom:20px;
 	overflow-y: scroll;

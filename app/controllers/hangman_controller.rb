@@ -1,4 +1,5 @@
 class HangmanController < ApplicationController
-  def index
-  end
+	layout 'hangman'
+	def index
+	end
 end
