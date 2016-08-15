@@ -1,28 +1,3 @@
-== README
+== Battleship on React.js
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This application is built on Ruby on Rails and React.js. It is modeled after the original Battleship game while at the same time constructed to understand how to implement a single page application. This was one of the first React.js programs I have built and serves my foundation into experiencing React.js. Very fun (and frustrating) to build, the application allowed me to experience the flow of constructing a React.js / RoR application. It can be viewed {here}[http://www.emiliocorpus.com/portfolio/battleship]
